@@ -3,3 +3,4 @@ uvicorn
 httpx
 scikit-learn
 pytest
+faiss-cpu

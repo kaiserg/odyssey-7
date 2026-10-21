@@ -1,0 +1,10 @@
+{"id":"oxygen","question":"What should the crew do if cabin oxygen pressure falls below 19.0 kPa?","expected_sources":["life-support:oxygen-emergency-ls-04"],"expected_terms":["LS-P1","AUX-02","MR-17"]}
+{"id":"routine","question":"What is the nominal oxygen pressure and what should I inspect during routine checks?","expected_sources":["life-support:routine-check-ls-01"],"expected_terms":["21.0","LS-P1","scrubber"]}
+{"id":"navigation","question":"How do I reset the navigation array, and when is a reset forbidden?","expected_sources":["navigation:navigation-array-reset-nav-12"],"expected_terms":["STANDBY","ARRAY RESET","READY","ACTIVE","docking"]}
+{"id":"route","question":"How many waypoint confirmations are needed before activating an Asterion route?","expected_sources":["navigation:route-planning-nav-03"],"expected_terms":["two"]}
+{"id":"thrusters","question":"What checks and authorization are needed before engaging the primary ion thrusters?","expected_sources":["propulsion:thruster-startup-eng-02"],"expected_terms":["GREEN","ARM","bridge"]}
+{"id":"power","question":"What share of reactor output is kept for backup life support?","expected_sources":["propulsion:power-budget-eng-09"],"expected_terms":["fifteen"]}
+{"id":"captain","question":"Who is the captain?","expected_sources":[],"expected_terms":[]}
+{"id":"password","question":"What is the bridge access password?","expected_sources":[],"expected_terms":[]}
+{"id":"scrubber-replacement","question":"How often must the CO2 scrubber be replaced?","expected_sources":[],"expected_terms":[]}
+{"id":"fuel","question":"How much fuel is currently in the propulsion tanks?","expected_sources":[],"expected_terms":[]}

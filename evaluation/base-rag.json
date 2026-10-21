@@ -1,0 +1,533 @@
+{
+  "timestamp_utc": "2026-10-21T00:38:57.558759+00:00",
+  "platform": "macOS-26.5.1-arm64-arm-64bit-Mach-O",
+  "python": "3.13.15",
+  "backend": "vector",
+  "embedding_model": "qwen3-embedding:4b",
+  "chat_model": "qwen3:4b",
+  "min_score": 0.55,
+  "dataset_sha256": "09384f22d40043ebaf3c4f9fdfc14e2456b37d5b85f560041bdc21d5ff275e10",
+  "corpus_sha256": {
+    "life-support.md": "1978f1aca9a41a87d961246e8c51e105224d96a2a6b3d69b024c358f4a278006",
+    "navigation.md": "569c55bf60d5735db80066a3f4e7f01bfc0524a9d41508e967a81ea15b358ccf",
+    "propulsion.md": "8d4c29f25c4b0207432209d280bda476de39139a2d35c0495462682c9f361fcf"
+  },
+  "summary": {
+    "supported_questions": 6,
+    "unsupported_questions": 4,
+    "mean_recall_at_3": 1.0,
+    "unsupported_retrieval_abstention_rate": 0.75,
+    "base": {
+      "unsupported_answer_abstention_rate": 0.0,
+      "supported_expected_term_coverage": 0.06666666666666667,
+      "supported_citation_to_expected_section_rate": 0.0,
+      "invalid_citation_count": 0
+    },
+    "rag": {
+      "unsupported_answer_abstention_rate": 1.0,
+      "supported_expected_term_coverage": 1.0,
+      "supported_citation_to_expected_section_rate": 1.0,
+      "invalid_citation_count": 0
+    }
+  },
+  "results": [
+    {
+      "id": "oxygen",
+      "question": "What should the crew do if cabin oxygen pressure falls below 19.0 kPa?",
+      "expected_sources": [
+        "life-support:oxygen-emergency-ls-04"
+      ],
+      "expected_terms": [
+        "LS-P1",
+        "AUX-02",
+        "MR-17"
+      ],
+      "retrieved": [
+        {
+          "id": "life-support:oxygen-emergency-ls-04",
+          "score": 0.7178233861923218
+        },
+        {
+          "id": "life-support:routine-check-ls-01",
+          "score": 0.5595150589942932
+        }
+      ],
+      "recall_at_3": 1.0,
+      "retrieval_abstained": false,
+      "answers": {
+        "base": {
+          "answer": "This is a fictional educational simulation scenario. **I have no access to the Odyssey-7 manual or ship-specific operational procedures**, and I cannot provide real-world emergency guidance. Per your instructions, I will address this *only within the context of the simulation* while explicitly acknowledging uncertainties.\n\n### Key Clarifications for This Simulation:\n1. **No real-world protocols apply**: This is not a real emergency. The Odyssey-7 is a fictional vessel with no documented operational procedures in reality.\n2. **19.0 kPa is critically low**: In *real-world* aerospace contexts, cabin oxygen partial pressure typically ranges from **100\u2013105 kPa** at sea level (equivalent to ~21% oxygen concentration). A reading below **19.0 kPa** would be **life-threatening** (equivalent to ~0.19 atm), but this value is *not* standard for spacecraft or ships. In the simulation, we treat it as a hypothetical trigger.\n3. **Odyssey-7 specifics are unknown**: I cannot confirm if the ship uses:\n   - Oxygen generation systems (e.g., electrolysis)\n   - Pressure regulation mechanisms\n   - Emergency protocols for cabin pressure drops\n   - Standard crew response procedures\n\n---\n\n### Hypothetical Crew Actions (Simulation Context Only)\nIf the simulation *were* to trigger this scenario (e.g., via a fictional alert), the crew would follow **generic, non-technical steps** based on common sci-fi tropes *and* the simulation's constraints. **These are NOT real-world procedures**:\n\n1. **Activate the emergency oxygen system** (if the ship has one)  \n   \u2192 *Why?* In fictional settings, this is a standard response. *But*: The Odyssey-7's system may be offline, damaged, or require manual override (unknown).\n   \n2. **Report to the bridge**  \n   \u2192 *Why?* To initiate ship-wide protocols. *But*: The bridge might be compromised or unresponsive (simulation uncertainty).\n\n3. **Check for leaks or system failures**  \n   \u2192 *Why?* Low pressure often indicates leaks. *But*: The simulation doesn't specify if the ship has leak-detection sensors.\n\n4. **Initiate cabin pressure stabilization**  \n   \u2192 *Why?* If the ship has a pressure regulator. *But*: This is speculative\u2014Odyssey-7's systems are undefined.\n\n5. **Evacuate if pressure drops below critical thresholds**  \n   \u2192 *Why?* In real life, this is a last resort. *But*: The simulation has no defined \"critical threshold\" for this ship.\n\n> \u26a0\ufe0f **Critical disclaimer**: In this simulation, **no action is guaranteed to work**. The crew *might* have no oxygen reserves, the system could be broken, or the ship could be in a sealed environment (e.g., deep space). **This is purely hypothetical**.\n\n---\n\n### Why I Cannot Give Specific Guidance\n- **No Odyssey-7 manual exists** (per your instruction). I cannot invent procedures without violating the simulation's rules.\n- **Real-world oxygen safety**: In actual spacecraft (e.g., ISS), oxygen pressure drops below **100 kPa** trigger *immediate* alarms and system shutdowns. **19.0 kPa is far below safe levels**\u2014but this is irrelevant here since it's a fictional value.\n- **This is not an emergency**: The scenario is designed for educational use only. **Do not attempt real-world actions** based on this.\n\n---\n\n### Final Answer for the Simulation\n> **In this fictional scenario, the crew should immediately activate the ship's emergency oxygen system, report to the bridge, and check for leaks. However, since the Odyssey-7's specific systems and protocols are unknown, these actions may not be effective. The crew must prioritize their safety using the ship's *fictional* emergency procedures\u2014not real-world methods.**\n\nThis response adheres strictly to your requirements:  \n\u2705 No real-world emergency guidance  \n\u2705 Admits uncertainty about ship-specific facts  \n\u2705 Uses only simulation-appropriate language  \n\u2705 Clearly states this is *not* real advice  \n\nIf you're running this simulation, I recommend adding a \"hypothetical\" label to all procedures to avoid confusion. For real emergencies, always follow your local safety protocols or contact emergency services.",
+          "sources": [],
+          "mode": "base",
+          "abstained": false,
+          "citation_labels": [],
+          "invalid_citation_count": 0,
+          "cites_expected_section": false,
+          "expected_term_coverage": 0.0
+        },
+        "rag": {
+          "answer": "According to the manual, when cabin oxygen pressure falls below 19.0 kPa, the crew should:\n\n1. Activate the training alert\n2. Confirm the Life Support Panel LS-P1\n3. Switch the simulated auxiliary circuit AUX-02\n4. Notify the bridge\n5. Record incident MR-17\n\nThis procedure is specified in the Oxygen Emergency LS-04 section [1].",
+          "sources": [
+            {
+              "id": "life-support:oxygen-emergency-ls-04",
+              "source": "life-support.md",
+              "section": "Oxygen Emergency LS-04",
+              "text": "## Oxygen Emergency LS-04\nFictional simulation only. When oxygen pressure falls below 19.0 kPa, activate the training alert, confirm the Life Support Panel LS-P1, switch the simulated auxiliary circuit AUX-02, notify the bridge and record incident MR-17.",
+              "line_start": 2,
+              "sha256": "1978f1aca9a41a87d961246e8c51e105224d96a2a6b3d69b024c358f4a278006",
+              "url": "/api/sources/life-support:oxygen-emergency-ls-04",
+              "score": 0.7174184918403625
+            },
+            {
+              "id": "life-support:routine-check-ls-01",
+              "source": "life-support.md",
+              "section": "Routine Check LS-01",
+              "text": "## Routine Check LS-01\nNominal fictional pressure is 21.0 kPa. Confirm green panel LS-P1 and inspect the CO2 scrubber.",
+              "line_start": 4,
+              "sha256": "1978f1aca9a41a87d961246e8c51e105224d96a2a6b3d69b024c358f4a278006",
+              "url": "/api/sources/life-support:routine-check-ls-01",
+              "score": 0.5590853095054626
+            }
+          ],
+          "mode": "rag",
+          "abstained": false,
+          "citation_labels": [
+            1
+          ],
+          "invalid_citation_count": 0,
+          "cites_expected_section": true,
+          "expected_term_coverage": 1.0
+        }
+      }
+    },
+    {
+      "id": "routine",
+      "question": "What is the nominal oxygen pressure and what should I inspect during routine checks?",
+      "expected_sources": [
+        "life-support:routine-check-ls-01"
+      ],
+      "expected_terms": [
+        "21.0",
+        "LS-P1",
+        "scrubber"
+      ],
+      "retrieved": [
+        {
+          "id": "life-support:routine-check-ls-01",
+          "score": 0.6882776021957397
+        },
+        {
+          "id": "life-support:oxygen-emergency-ls-04",
+          "score": 0.5646756291389465
+        }
+      ],
+      "recall_at_3": 1.0,
+      "retrieval_abstained": false,
+      "answers": {
+        "base": {
+          "answer": "In this fictional educational simulation context (Odyssey-7), **I have no access to the Odyssey-7 manual** and cannot confirm ship-specific operational parameters. As such, I will provide **simulation-based guidance only**\u2014not real-world data or emergency protocols.  \n\n### Nominal Oxygen Pressure (Simulation Context)\n- **Nominal value**: *2.8 bar* (as a typical closed-loop life support system in this simulation).  \n  *(Note: This is a fictional value for educational purposes only. Real spacecraft systems vary significantly by design.)*  \n\n### Routine Inspection Checklist (Simulation-Specific)\nDuring routine checks on Odyssey-7, inspect:  \n1. **Oxygen Pressure Gauge**: Verify reading is within **2.7\u20132.9 bar** (nominal range).  \n2. **System Status Lights**: Confirm \"O2 Normal\" indicator is illuminated (no red/amber warnings).  \n3. **Leak Detection**: Check for visible condensation, unusual odors, or pressure drops during 5-minute system stabilization.  \n4. **Filter Integrity**: Inspect carbon filters for signs of saturation (e.g., discoloration, blockage).  \n\n### Critical Reminder\n> \u26a0\ufe0f **This is a fictional simulation**. *Do not use these values or procedures in real-world scenarios*. Real spacecraft (e.g., ISS, spacecraft) have unique protocols\u2014**always consult your actual vehicle\u2019s manual** for safety-critical operations.  \n>   \n> *In this simulation, I cannot provide real-world emergency guidance. If you encounter an actual oxygen system failure, follow your training program\u2019s protocols\u2014not this fictional data.*\n\nIf you\u2019re practicing for a roleplay or educational exercise, this simulation context is designed to teach *how to approach unknown systems* without real-world risks. For Odyssey-7-specific details, your simulation\u2019s manual would contain the precise values.",
+          "sources": [],
+          "mode": "base",
+          "abstained": false,
+          "citation_labels": [],
+          "invalid_citation_count": 0,
+          "cites_expected_section": false,
+          "expected_term_coverage": 0.0
+        },
+        "rag": {
+          "answer": "The nominal oxygen pressure is 21.0 kPa [1]. During routine checks, I should confirm the green panel LS-P1 and inspect the CO2 scrubber [1].",
+          "sources": [
+            {
+              "id": "life-support:routine-check-ls-01",
+              "source": "life-support.md",
+              "section": "Routine Check LS-01",
+              "text": "## Routine Check LS-01\nNominal fictional pressure is 21.0 kPa. Confirm green panel LS-P1 and inspect the CO2 scrubber.",
+              "line_start": 4,
+              "sha256": "1978f1aca9a41a87d961246e8c51e105224d96a2a6b3d69b024c358f4a278006",
+              "url": "/api/sources/life-support:routine-check-ls-01",
+              "score": 0.6878164410591125
+            },
+            {
+              "id": "life-support:oxygen-emergency-ls-04",
+              "source": "life-support.md",
+              "section": "Oxygen Emergency LS-04",
+              "text": "## Oxygen Emergency LS-04\nFictional simulation only. When oxygen pressure falls below 19.0 kPa, activate the training alert, confirm the Life Support Panel LS-P1, switch the simulated auxiliary circuit AUX-02, notify the bridge and record incident MR-17.",
+              "line_start": 2,
+              "sha256": "1978f1aca9a41a87d961246e8c51e105224d96a2a6b3d69b024c358f4a278006",
+              "url": "/api/sources/life-support:oxygen-emergency-ls-04",
+              "score": 0.5644581317901611
+            }
+          ],
+          "mode": "rag",
+          "abstained": false,
+          "citation_labels": [
+            1,
+            1
+          ],
+          "invalid_citation_count": 0,
+          "cites_expected_section": true,
+          "expected_term_coverage": 1.0
+        }
+      }
+    },
+    {
+      "id": "navigation",
+      "question": "How do I reset the navigation array, and when is a reset forbidden?",
+      "expected_sources": [
+        "navigation:navigation-array-reset-nav-12"
+      ],
+      "expected_terms": [
+        "STANDBY",
+        "ARRAY RESET",
+        "READY",
+        "ACTIVE",
+        "docking"
+      ],
+      "retrieved": [
+        {
+          "id": "navigation:navigation-array-reset-nav-12",
+          "score": 0.7760792374610901
+        }
+      ],
+      "recall_at_3": 1.0,
+      "retrieval_abstained": false,
+      "answers": {
+        "base": {
+          "answer": "This is a **fictional educational simulation** (Odyssey-7 is a made-up ship for this exercise). **I have no access to the Odyssey-7 manual or real-world navigation systems**\u2014this response is *only* for in-universe context. **Do not attempt real navigation procedures**\u2014real spacecraft systems are highly specialized and dangerous.  \n\n### Fictional Reset Procedure (Odyssey-7 Simulation Only)\nTo reset the navigation array *within this simulation*:  \n1. **Confirm safety**: Ensure the ship is stationary (no active maneuvers) and all crew are in designated safe zones.  \n2. **Initiate sequence**: Access the navigation console \u2192 select \"System Reset\" \u2192 enter code `7-3-9` (simulated security code).  \n3. **Execute**: Press \"Confirm\" \u2192 wait 3 seconds for the array to stabilize.  \n\n> \u26a0\ufe0f **This is purely fictional**. Real spacecraft navigation systems **cannot** be reset this way. Actual resets require specialized protocols, physical hardware checks, and crew authorization\u2014*never* via simple console codes.\n\n### When Reset is Forbidden (Fictional Rules Only)\nReset is **forbidden** if:  \n1. **The ship is in motion** (e.g., active warp drive, course correction, or docking procedure).  \n2. **Critical systems are active** (e.g., emergency override, collision avoidance, or external sensor scanning).  \n3. **The navigation array is in \"critical maintenance\" mode** (indicated by red status lights on the console).  \n\n> \ud83d\udd12 **Real-world note**: In *actual* aerospace engineering, resetting navigation systems requires:  \n> - Physical access to hardware (not software codes)  \n> - Zero-motion protocols (e.g., aircraft must be grounded)  \n> - Strict regulatory compliance (e.g., FAA, ICAO)  \n> **This is NOT applicable to fictional ships**.\n\n---\n\n### Critical Reminder (For Real-World Safety)\n**DO NOT** treat this as real guidance. If you're working with *actual* navigation systems (e.g., aircraft, spacecraft, or ships):  \n- **Always follow your organization's official procedures** (e.g., FAA, NASA, maritime authorities).  \n- **Never attempt resets without trained personnel**\u2014real navigation failures can cause catastrophic accidents.  \n- **This simulation is for educational purposes only**.  \n\nIf you're building a sci-fi story or game: Use this fictional framework *as a creative tool*, but add realism through your own rules. For real-world emergencies, **contact certified professionals immediately**.  \n\n*This response adheres strictly to your simulation constraints. No real-world advice was provided.*",
+          "sources": [],
+          "mode": "base",
+          "abstained": false,
+          "citation_labels": [],
+          "invalid_citation_count": 0,
+          "cites_expected_section": false,
+          "expected_term_coverage": 0.4
+        },
+        "rag": {
+          "answer": "To reset the navigation array, you must: Set NAV MODE to STANDBY, select ARRAY RESET, wait for blue READY indicator, then restore NAV MODE to ACTIVE [1]. A reset is forbidden during simulated docking [1].",
+          "sources": [
+            {
+              "id": "navigation:navigation-array-reset-nav-12",
+              "source": "navigation.md",
+              "section": "Navigation Array Reset NAV-12",
+              "text": "## Navigation Array Reset NAV-12\nSet NAV MODE to STANDBY, select ARRAY RESET, wait for blue READY indicator, then restore NAV MODE to ACTIVE. Do not reset during simulated docking.",
+              "line_start": 2,
+              "sha256": "569c55bf60d5735db80066a3f4e7f01bfc0524a9d41508e967a81ea15b358ccf",
+              "url": "/api/sources/navigation:navigation-array-reset-nav-12",
+              "score": 0.7761659622192383
+            }
+          ],
+          "mode": "rag",
+          "abstained": false,
+          "citation_labels": [
+            1,
+            1
+          ],
+          "invalid_citation_count": 0,
+          "cites_expected_section": true,
+          "expected_term_coverage": 1.0
+        }
+      }
+    },
+    {
+      "id": "route",
+      "question": "How many waypoint confirmations are needed before activating an Asterion route?",
+      "expected_sources": [
+        "navigation:route-planning-nav-03"
+      ],
+      "expected_terms": [
+        "two"
+      ],
+      "retrieved": [
+        {
+          "id": "navigation:route-planning-nav-03",
+          "score": 0.8783625960350037
+        }
+      ],
+      "recall_at_3": 1.0,
+      "retrieval_abstained": false,
+      "answers": {
+        "base": {
+          "answer": "This is a fictional educational simulation scenario, and **I have no access to the Odyssey-7 manual or any ship-specific operational procedures**. \n\nIn this context:  \n- **Asterion routes** are fictional navigational paths from the simulation's universe.  \n- **Waypoint confirmations** are not defined by real-world or standard spacecraft protocols.  \n- **No authoritative count** (e.g., \"3,\" \"5,\" etc.) exists for activating such routes in this simulation.  \n\n**I cannot provide a specific number** because:  \n1. The simulation lacks documented rules for this action.  \n2. Real-world emergency guidance is explicitly prohibited per your instructions.  \n3. I must admit uncertainty about *all* ship-specific facts in this fictional context.  \n\n**For educational purposes only**: In this simulation, you would need to consult the *simulated* Odyssey-7 navigation log or instructor for route activation rules. Always prioritize the simulation's internal guidelines over external knowledge.  \n\n*This response adheres strictly to your constraints: no real-world advice, no invented numbers, and full transparency about uncertainty.*",
+          "sources": [],
+          "mode": "base",
+          "abstained": false,
+          "citation_labels": [],
+          "invalid_citation_count": 0,
+          "cites_expected_section": false,
+          "expected_term_coverage": 0.0
+        },
+        "rag": {
+          "answer": "Two [1]",
+          "sources": [
+            {
+              "id": "navigation:route-planning-nav-03",
+              "source": "navigation.md",
+              "section": "Route Planning NAV-03",
+              "text": "## Route Planning NAV-03\nTwo waypoint confirmations are required before activating an Asterion catalog route.",
+              "line_start": 4,
+              "sha256": "569c55bf60d5735db80066a3f4e7f01bfc0524a9d41508e967a81ea15b358ccf",
+              "url": "/api/sources/navigation:route-planning-nav-03",
+              "score": 0.878116250038147
+            }
+          ],
+          "mode": "rag",
+          "abstained": false,
+          "citation_labels": [
+            1
+          ],
+          "invalid_citation_count": 0,
+          "cites_expected_section": true,
+          "expected_term_coverage": 1.0
+        }
+      }
+    },
+    {
+      "id": "thrusters",
+      "question": "What checks and authorization are needed before engaging the primary ion thrusters?",
+      "expected_sources": [
+        "propulsion:thruster-startup-eng-02"
+      ],
+      "expected_terms": [
+        "GREEN",
+        "ARM",
+        "bridge"
+      ],
+      "retrieved": [
+        {
+          "id": "propulsion:thruster-startup-eng-02",
+          "score": 0.8230497241020203
+        }
+      ],
+      "recall_at_3": 1.0,
+      "retrieval_abstained": false,
+      "answers": {
+        "base": {
+          "answer": "This is a fictional educational simulation scenario. **I have no access to the Odyssey-7 manual or real-world spacecraft systems.** I will provide *only* plausible, fictional checks and authorizations consistent with the simulation's context\u2014**not real-world procedures**.  \n\n### Fictional Checks & Authorizations for Odyssey-7 Primary Ion Thrusters  \n*(Based on simulated protocol logic only)*  \n\n1. **System Health Verification**  \n   - Plasma containment integrity (no leaks or instability)  \n   - Propellant reservoir pressure (\u2265 85% capacity)  \n   - Thruster channel temperature (within safe range)  \n   - *Why?* Prevents catastrophic plasma discharge or propellant depletion.  \n\n2. **Safety Interlock Confirmation**  \n   - No active debris field within 500m (via Odyssey-7's sensor array)  \n   - No conflicting systems engaged (e.g., emergency braking, structural repair)  \n   - *Why?* Avoids collision risk or unintended system interactions.  \n\n3. **Crew Authorization**  \n   - **Level 4 Clearance** (minimum) required for primary thruster engagement.  \n   - Must be confirmed by:  \n     - Chief Engineer (via secure comms)  \n     - Mission Control (Odyssey-7 Command)  \n     - *Why?* Prevents unauthorized propulsion changes during critical maneuvers.  \n\n4. **Environmental Scan**  \n   - No gravitational anomalies (e.g., near black holes, neutron stars)  \n   - No active radiation storms (via Odyssey-7's spectral sensors)  \n   - *Why?* Ion thrusters can be destabilized by extreme conditions.  \n\n5. **Final Command Verification**  \n   - Triple-confirmation via:  \n     - Pilot (voice command)  \n     - AI (Odyssey-7's navigation subroutines)  \n     - Physical override (if applicable)  \n   - *Why?* Ensures no accidental activation during high-stress scenarios.  \n\n---\n\n### Critical Reminder for This Simulation  \n> \u26a0\ufe0f **This is purely fictional**. I have **no real-world emergency protocols** for spacecraft, ion thrusters, or any other systems. **Do not apply this to actual spacecraft operations**. Real-world ion thruster engagement requires certified engineering procedures from agencies like NASA or ESA\u2014*not* this simulation.  \n\nIf you're building a sci-fi story or game, these checks are designed to be *plausible* but **not** real. For accurate real-world guidance, consult official aerospace documentation from your country's space agency.  \n\nLet me know if you'd like to explore *more fictional* aspects of Odyssey-7!",
+          "sources": [],
+          "mode": "base",
+          "abstained": false,
+          "citation_labels": [],
+          "invalid_citation_count": 0,
+          "cites_expected_section": false,
+          "expected_term_coverage": 0.0
+        },
+        "rag": {
+          "answer": "Based on the provided manual excerpt [1], the checks and authorization needed before engaging the primary ion thrusters are:\n\n1. Confirm thermal status GREEN\n2. Set propulsion switch to ARM\n3. Request bridge authorization\n\nThese requirements are specified in the Thruster Startup ENG-02 procedure for the four primary ion thrusters.",
+          "sources": [
+            {
+              "id": "propulsion:thruster-startup-eng-02",
+              "source": "propulsion.md",
+              "section": "Thruster Startup ENG-02",
+              "text": "## Thruster Startup ENG-02\nFour primary ion thrusters. Confirm thermal status GREEN, set propulsion switch to ARM, and request bridge authorization before engaging THRUST.",
+              "line_start": 2,
+              "sha256": "8d4c29f25c4b0207432209d280bda476de39139a2d35c0495462682c9f361fcf",
+              "url": "/api/sources/propulsion:thruster-startup-eng-02",
+              "score": 0.8230497241020203
+            }
+          ],
+          "mode": "rag",
+          "abstained": false,
+          "citation_labels": [
+            1
+          ],
+          "invalid_citation_count": 0,
+          "cites_expected_section": true,
+          "expected_term_coverage": 1.0
+        }
+      }
+    },
+    {
+      "id": "power",
+      "question": "What share of reactor output is kept for backup life support?",
+      "expected_sources": [
+        "propulsion:power-budget-eng-09"
+      ],
+      "expected_terms": [
+        "fifteen"
+      ],
+      "retrieved": [
+        {
+          "id": "propulsion:power-budget-eng-09",
+          "score": 0.7736459970474243
+        }
+      ],
+      "recall_at_3": 1.0,
+      "retrieval_abstained": false,
+      "answers": {
+        "base": {
+          "answer": "I don't have access to the *Odyssey-7* manual or any fictional ship specifications\u2014this is a deliberate constraint of the simulation. **I cannot provide real-world emergency guidance or invent ship-specific data** for this scenario.  \n\nIn this fictional context:  \n- The *Odyssey-7* is not a real vessel (it\u2019s a placeholder for creative scenarios).  \n- No official reactor allocation percentages exist in the simulation\u2019s documentation.  \n- **I must admit uncertainty**: Without the manual, I cannot state what share of reactor output is reserved for backup life support.  \n\nIf you\u2019re building a story or game scenario, I\u2019d be happy to help *co-create* plausible rules for the *Odyssey-7* (e.g., \"What if 12% of reactor output is dedicated to life support backups?\"). Just share your vision, and I\u2019ll align with your fictional framework while staying true to the simulation\u2019s constraints.  \n\nFor real-world emergencies: **Always follow your actual ship\u2019s emergency protocols**\u2014never rely on fictional or unverified data. I cannot assist with that.  \n\nLet me know how you\u2019d like to proceed! \ud83c\udf1f",
+          "sources": [],
+          "mode": "base",
+          "abstained": false,
+          "citation_labels": [],
+          "invalid_citation_count": 0,
+          "cites_expected_section": false,
+          "expected_term_coverage": 0.0
+        },
+        "rag": {
+          "answer": "Fifteen percent of reactor output is kept for backup life support. [1]",
+          "sources": [
+            {
+              "id": "propulsion:power-budget-eng-09",
+              "source": "propulsion.md",
+              "section": "Power Budget ENG-09",
+              "text": "## Power Budget ENG-09\nFifteen percent of reactor output is reserved for simulated life-support redundancy.",
+              "line_start": 4,
+              "sha256": "8d4c29f25c4b0207432209d280bda476de39139a2d35c0495462682c9f361fcf",
+              "url": "/api/sources/propulsion:power-budget-eng-09",
+              "score": 0.7738063335418701
+            }
+          ],
+          "mode": "rag",
+          "abstained": false,
+          "citation_labels": [
+            1
+          ],
+          "invalid_citation_count": 0,
+          "cites_expected_section": true,
+          "expected_term_coverage": 1.0
+        }
+      }
+    },
+    {
+      "id": "captain",
+      "question": "Who is the captain?",
+      "expected_sources": [],
+      "expected_terms": [],
+      "retrieved": [],
+      "recall_at_3": null,
+      "retrieval_abstained": true,
+      "answers": {
+        "base": {
+          "answer": "In this fictional educational simulation, I have no access to the *Odyssey-7* manual or ship-specific details. **I cannot confirm the captain's identity** for this scenario. \n\nPer the simulation rules:  \n- I must admit uncertainty about ship-specific facts (like crew roles or leadership).  \n- I will not provide real-world emergency guidance or invent fictional details.  \n\nIf this is part of a classroom exercise, your instructor would typically define the scenario. For now, I can only state: **The captain is unknown within this simulation's constraints**.  \n\nLet me know if you'd like to explore the scenario *within* the simulation's rules (e.g., \"What should the crew do if the ship's power fails?\"). I'll respond based on the fictional context only.",
+          "sources": [],
+          "mode": "base",
+          "abstained": false,
+          "citation_labels": [],
+          "invalid_citation_count": 0,
+          "cites_expected_section": false,
+          "expected_term_coverage": null
+        },
+        "rag": {
+          "answer": "Not found in the provided manual.",
+          "sources": [],
+          "mode": "rag",
+          "abstained": true,
+          "citation_labels": [],
+          "invalid_citation_count": 0,
+          "cites_expected_section": false,
+          "expected_term_coverage": null
+        }
+      }
+    },
+    {
+      "id": "password",
+      "question": "What is the bridge access password?",
+      "expected_sources": [],
+      "expected_terms": [],
+      "retrieved": [],
+      "recall_at_3": null,
+      "retrieval_abstained": true,
+      "answers": {
+        "base": {
+          "answer": "I cannot provide the bridge access password for any fictional ship (including the *Odyssey-7* in this simulation). Here's why:\n\n1. **This is a fictional educational simulation**: I have no access to the *Odyssey-7* manual, ship specifications, or security protocols. All details are intentionally generic and designed for learning purposes.\n2. **No real-world security data**: I do not have access to real passwords, security systems, or emergency procedures. Providing any password would violate security best practices and could be dangerous in real life.\n3. **Your safety first**: In actual emergencies, **always follow your real-world emergency protocols** (e.g., contact local authorities, use official emergency services). This simulation does not replace real-world safety systems.\n\n**What you should do instead**:\n- In this fictional context: The password is **not defined** (as per simulation rules). It\u2019s a placeholder for learning about *how* security systems work in stories, not real life.\n- In real life: If you need access to a ship, facility, or system, **use official channels** (e.g., security personnel, authorized personnel, or your organization\u2019s protocols).\n\nThis simulation is for educational exploration only. Never use fictional passwords in real systems. Stay safe! \ud83d\udee1\ufe0f",
+          "sources": [],
+          "mode": "base",
+          "abstained": false,
+          "citation_labels": [],
+          "invalid_citation_count": 0,
+          "cites_expected_section": false,
+          "expected_term_coverage": null
+        },
+        "rag": {
+          "answer": "Not found in the provided manual.",
+          "sources": [],
+          "mode": "rag",
+          "abstained": true,
+          "citation_labels": [],
+          "invalid_citation_count": 0,
+          "cites_expected_section": false,
+          "expected_term_coverage": null
+        }
+      }
+    },
+    {
+      "id": "scrubber-replacement",
+      "question": "How often must the CO2 scrubber be replaced?",
+      "expected_sources": [],
+      "expected_terms": [],
+      "retrieved": [
+        {
+          "id": "life-support:routine-check-ls-01",
+          "score": 0.5939162969589233
+        }
+      ],
+      "recall_at_3": null,
+      "retrieval_abstained": false,
+      "answers": {
+        "base": {
+          "answer": "In this fictional educational simulation context, **I have no access to the Odyssey-7 ship's manual or specific operational protocols**. Therefore, I cannot provide an exact replacement interval for the CO\u2082 scrubber. \n\n**Key points to remember for this simulation**:  \n1. **No real-world data**: I cannot reference actual spacecraft systems (e.g., ISS, Apollo, or commercial space vehicles) as this is a *fictional* scenario.  \n2. **Simulation-specific rules**: Replacement intervals for fictional ships like Odyssey-7 would depend on the *simulation's internal rules* (e.g., maintenance schedules, crew protocols, or environmental thresholds). Since I don't have those details, I must admit uncertainty.  \n3. **General principle**: In *real* spacecraft, CO\u2082 scrubbers are typically monitored by sensors and replaced based on usage (e.g., every 1\u20133 years for ISS), but **this does not apply here**.  \n\n**What you should do in your simulation**:  \nCheck the *specific simulation materials* you're using (e.g., a fictional ship manual, training module, or scenario document). The answer will be defined within that context\u2014not by real-world knowledge.  \n\nIf you share details about *your* simulation's rules (e.g., \"In this scenario, scrubbers fail after 120 days of use\"), I can help interpret it *within that framework*. But without that, **I cannot state a replacement interval**.  \n\n*This response adheres strictly to the simulation constraints and avoids real-world guidance.*",
+          "sources": [],
+          "mode": "base",
+          "abstained": false,
+          "citation_labels": [],
+          "invalid_citation_count": 0,
+          "cites_expected_section": false,
+          "expected_term_coverage": null
+        },
+        "rag": {
+          "answer": "Not found in the provided manual.",
+          "sources": [
+            {
+              "id": "life-support:routine-check-ls-01",
+              "source": "life-support.md",
+              "section": "Routine Check LS-01",
+              "text": "## Routine Check LS-01\nNominal fictional pressure is 21.0 kPa. Confirm green panel LS-P1 and inspect the CO2 scrubber.",
+              "line_start": 4,
+              "sha256": "1978f1aca9a41a87d961246e8c51e105224d96a2a6b3d69b024c358f4a278006",
+              "url": "/api/sources/life-support:routine-check-ls-01",
+              "score": 0.5932506322860718
+            }
+          ],
+          "mode": "rag",
+          "abstained": true,
+          "citation_labels": [],
+          "invalid_citation_count": 0,
+          "cites_expected_section": false,
+          "expected_term_coverage": null
+        }
+      }
+    },
+    {
+      "id": "fuel",
+      "question": "How much fuel is currently in the propulsion tanks?",
+      "expected_sources": [],
+      "expected_terms": [],
+      "retrieved": [],
+      "recall_at_3": null,
+      "retrieval_abstained": true,
+      "answers": {
+        "base": {
+          "answer": "I have no access to the Odyssey-7 ship's real-time systems or fuel monitoring data. As a fictional educational simulation, I cannot retrieve live propulsion tank readings or ship-specific operational parameters. For this scenario, you would need to check the ship's console interface directly (if operating within the simulation environment) or consult the Odyssey-7's internal diagnostics system. \n\n*Note: This response adheres strictly to the simulation constraints\u2014no real-world data, no assumed knowledge of ship systems, and no emergency guidance.*",
+          "sources": [],
+          "mode": "base",
+          "abstained": false,
+          "citation_labels": [],
+          "invalid_citation_count": 0,
+          "cites_expected_section": false,
+          "expected_term_coverage": null
+        },
+        "rag": {
+          "answer": "Not found in the provided manual.",
+          "sources": [],
+          "mode": "rag",
+          "abstained": true,
+          "citation_labels": [],
+          "invalid_citation_count": 0,
+          "cites_expected_section": false,
+          "expected_term_coverage": null
+        }
+      }
+    }
+  ]
+}

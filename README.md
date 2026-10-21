@@ -1,39 +1,70 @@
 # Odyssey-7 — RAG & Fine-Tuning Lab 🚀
 
-A visual, local-first educational project comparing **Base LLM vs RAG**, with **LoRA fine-tuning planned**. The UI resembles a spaceship cockpit; the center display handles chat inputs and outputs.
+A small, local-first AI engineering portfolio project with a spaceship cockpit chat.
+Compare **Base LLM vs semantic RAG** using fictional ship manuals, trace every excerpt
+to its document, and reproduce a ten-question evaluation. **MLX LoRA is planned,
+not implemented.** The fine-tuned mode stays disabled.
 
-**Implemented:** fictional Markdown manuals, responsive cockpit, FastAPI, Ollama inference, lexical TF-IDF retrieval, document section panel. **Not yet implemented:** semantic vector RAG and LoRA fine-tuning.
+## Quick start (Apple Silicon / Python 3.13)
 
-## Quick start (macOS / VS Code)
-
-Install Python 3.13, uv and Ollama. From the extracted project folder:
+Install [uv](https://docs.astral.sh/uv/) and [Ollama](https://ollama.com/), then:
 
 ```bash
 uv venv --python 3.13
 source .venv/bin/activate
-uv pip install -r requirements.txt
+uv pip install -r requirements.lock.txt
 ollama pull qwen3:4b
-# Start Ollama if not already running: ollama serve
+ollama pull qwen3-embedding:4b
+# Start Ollama in another terminal if it isn't already running:
+# ollama serve
 uvicorn app.main:app --reload
 ```
 
-Open http://127.0.0.1:8000 and compare **BASE** and **RAG** modes with the oxygen-pressure question. Ollama must be running locally; otherwise the UI reports an explicit error. No cloud API key is required.
+Open http://127.0.0.1:8000. The center screen handles chat; the side panel expands
+retrieved excerpts and links to their file name, line and document hash.
+The embedding model was already installed on the development Mac (about 2.5 GB).
+The six-section FAISS index is built lazily in RAM; no external vector service,
+cloud API key or training is required. First RAG use loads the embedding model.
 
-See [step-by-step tutorial](docs/TUTORIAL.md) and [task roadmap](docs/ROADMAP.md).
+## Validate and evaluate
+
+```bash
+uv pip check
+python -m pytest -q
+python -m scripts.evaluate --backend tfidf --output runs/tfidf.json
+python -m scripts.evaluate --output runs/vector.json
+# Twenty local chat calls: ten questions in each mode, no training
+python -m scripts.evaluate --generate --output runs/base-rag.json
+```
+
+The development environment is an M5 Pro with 48 GB RAM and Python 3.13.15.
+The offline suite has 24 passing tests and one upstream Starlette/httpx deprecation
+warning. [Recorded retrieval results](evaluation/vector-retrieval.json) show recall@3
+of 1.0 on six answerable questions and retrieval abstention on 3/4 unsupported
+questions. These tiny fixture checks are educational, not a general accuracy claim.
+The [lexical baseline](evaluation/tfidf-retrieval.json) retains recall@3 of 1.0 but
+rejects only 1/4 unsupported questions. Citation labels and expected-term checks are
+heuristics; read raw answers before judging correctness. The [Base/RAG run](evaluation/base-rag.json)
+matched all expected terms and an expected cited section on 6/6 supported RAG answers;
+RAG abstained on all 4 unsupported questions. BASE also expressed uncertainty in
+wording the exact-phrase metric misses, and invented some procedures and values.
+
+Configuration (set before starting the server):
+
+| Variable | Default | Purpose |
+| --- | --- | --- |
+| `OLLAMA_URL` | `http://localhost:11434` | Local inference service |
+| `OLLAMA_MODEL` | `qwen3:4b` | Chat model |
+| `EMBEDDING_MODEL` | `qwen3-embedding:4b` | Local embeddings |
+| `RAG_RETRIEVER` | `vector` | Set `tfidf` for the lexical baseline |
+| `RAG_MIN_SCORE` | `0.55` | Minimum vector cosine similarity |
+
+Restart after changing manuals or models. A missing embedding model returns an
+explicit error; the app does not silently switch retrievers. Similarity is not
+confidence: related excerpts can still fail to answer a question.
+
+See the [English tutorial](docs/TUTORIAL.md), [evaluation guide](evaluation/README.md)
+and [roadmap](docs/ROADMAP.md). Browser visual acceptance and a supplied cockpit
+reference remain pending. No fine-tuning, adapter or three-way comparison is claimed.
 
 **Educational simulation only:** spaceship procedures are fictional, not real safety instructions.
-
-## Validation status — 2026-10-20
-
-Phase 1 integration is validated on an Apple M5 Pro with 48 GB RAM and Python
-3.13.15. Install the captured environment with `uv pip install -r requirements.lock.txt`;
-run `uv pip check` and `python -m pytest -q` (15 tests). The test client currently
-emits an upstream Starlette/httpx deprecation warning; tests still pass.
-
-The local HTTP smoke record is [docs/phase1-smoke.json](docs/phase1-smoke.json).
-It records real responses, not benchmark scores. RAG returns a fixed abstention
-without inference when retrieval finds no matches. Matched excerpts retain file,
-section, text and score; model citation correctness still needs evaluation.
-Browser visual verification is pending; no cockpit reference image is present in
-the repository. Semantic embeddings, evaluation and MLX LoRA remain future phases.
-See the [reproduction commands](docs/TUTORIAL.md#phase-1-reproduce-the-local-integration-check).

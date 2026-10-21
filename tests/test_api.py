@@ -6,6 +6,12 @@ from app.main import app
 
 client = TestClient(app)
 
+@pytest.fixture(autouse=True)
+def lexical_baseline(monkeypatch):
+    # These prompt tests stay offline; vector integration has separate tests.
+    monkeypatch.setenv('RAG_RETRIEVER', 'tfidf')
+
+
 @pytest.mark.parametrize('path', ['/', '/static/app.js', '/static/style.css', '/api/docs'])
 def test_startup_routes(path):
     assert client.get(path).status_code == 200

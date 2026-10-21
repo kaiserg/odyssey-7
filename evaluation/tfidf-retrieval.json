@@ -1,0 +1,208 @@
+{
+  "timestamp_utc": "2026-10-21T00:36:37.200051+00:00",
+  "platform": "macOS-26.5.1-arm64-arm-64bit-Mach-O",
+  "python": "3.13.15",
+  "backend": "tfidf",
+  "embedding_model": "qwen3-embedding:4b",
+  "chat_model": "qwen3:4b",
+  "min_score": 0,
+  "dataset_sha256": "09384f22d40043ebaf3c4f9fdfc14e2456b37d5b85f560041bdc21d5ff275e10",
+  "corpus_sha256": {
+    "life-support.md": "1978f1aca9a41a87d961246e8c51e105224d96a2a6b3d69b024c358f4a278006",
+    "navigation.md": "569c55bf60d5735db80066a3f4e7f01bfc0524a9d41508e967a81ea15b358ccf",
+    "propulsion.md": "8d4c29f25c4b0207432209d280bda476de39139a2d35c0495462682c9f361fcf"
+  },
+  "summary": {
+    "supported_questions": 6,
+    "unsupported_questions": 4,
+    "mean_recall_at_3": 1.0,
+    "unsupported_retrieval_abstention_rate": 0.25
+  },
+  "results": [
+    {
+      "id": "oxygen",
+      "question": "What should the crew do if cabin oxygen pressure falls below 19.0 kPa?",
+      "expected_sources": [
+        "life-support:oxygen-emergency-ls-04"
+      ],
+      "expected_terms": [
+        "LS-P1",
+        "AUX-02",
+        "MR-17"
+      ],
+      "retrieved": [
+        {
+          "id": "life-support:oxygen-emergency-ls-04",
+          "score": 0.41627587098895563
+        },
+        {
+          "id": "life-support:routine-check-ls-01",
+          "score": 0.08423054057458618
+        }
+      ],
+      "recall_at_3": 1.0,
+      "retrieval_abstained": false
+    },
+    {
+      "id": "routine",
+      "question": "What is the nominal oxygen pressure and what should I inspect during routine checks?",
+      "expected_sources": [
+        "life-support:routine-check-ls-01"
+      ],
+      "expected_terms": [
+        "21.0",
+        "LS-P1",
+        "scrubber"
+      ],
+      "retrieved": [
+        {
+          "id": "life-support:routine-check-ls-01",
+          "score": 0.27898082409015634
+        },
+        {
+          "id": "life-support:oxygen-emergency-ls-04",
+          "score": 0.19842055710059378
+        }
+      ],
+      "recall_at_3": 1.0,
+      "retrieval_abstained": false
+    },
+    {
+      "id": "navigation",
+      "question": "How do I reset the navigation array, and when is a reset forbidden?",
+      "expected_sources": [
+        "navigation:navigation-array-reset-nav-12"
+      ],
+      "expected_terms": [
+        "STANDBY",
+        "ARRAY RESET",
+        "READY",
+        "ACTIVE",
+        "docking"
+      ],
+      "retrieved": [
+        {
+          "id": "navigation:navigation-array-reset-nav-12",
+          "score": 0.5423104997453819
+        }
+      ],
+      "recall_at_3": 1.0,
+      "retrieval_abstained": false
+    },
+    {
+      "id": "route",
+      "question": "How many waypoint confirmations are needed before activating an Asterion route?",
+      "expected_sources": [
+        "navigation:route-planning-nav-03"
+      ],
+      "expected_terms": [
+        "two"
+      ],
+      "retrieved": [
+        {
+          "id": "navigation:route-planning-nav-03",
+          "score": 0.6350267131110191
+        }
+      ],
+      "recall_at_3": 1.0,
+      "retrieval_abstained": false
+    },
+    {
+      "id": "thrusters",
+      "question": "What checks and authorization are needed before engaging the primary ion thrusters?",
+      "expected_sources": [
+        "propulsion:thruster-startup-eng-02"
+      ],
+      "expected_terms": [
+        "GREEN",
+        "ARM",
+        "bridge"
+      ],
+      "retrieved": [
+        {
+          "id": "propulsion:thruster-startup-eng-02",
+          "score": 0.4378448867011975
+        }
+      ],
+      "recall_at_3": 1.0,
+      "retrieval_abstained": false
+    },
+    {
+      "id": "power",
+      "question": "What share of reactor output is kept for backup life support?",
+      "expected_sources": [
+        "propulsion:power-budget-eng-09"
+      ],
+      "expected_terms": [
+        "fifteen"
+      ],
+      "retrieved": [
+        {
+          "id": "propulsion:power-budget-eng-09",
+          "score": 0.486837115597374
+        },
+        {
+          "id": "life-support:oxygen-emergency-ls-04",
+          "score": 0.11589070185340185
+        }
+      ],
+      "recall_at_3": 1.0,
+      "retrieval_abstained": false
+    },
+    {
+      "id": "captain",
+      "question": "Who is the captain?",
+      "expected_sources": [],
+      "expected_terms": [],
+      "retrieved": [],
+      "recall_at_3": null,
+      "retrieval_abstained": true
+    },
+    {
+      "id": "password",
+      "question": "What is the bridge access password?",
+      "expected_sources": [],
+      "expected_terms": [],
+      "retrieved": [
+        {
+          "id": "propulsion:thruster-startup-eng-02",
+          "score": 0.13570401309125474
+        },
+        {
+          "id": "life-support:oxygen-emergency-ls-04",
+          "score": 0.1055211856918287
+        }
+      ],
+      "recall_at_3": null,
+      "retrieval_abstained": false
+    },
+    {
+      "id": "scrubber-replacement",
+      "question": "How often must the CO2 scrubber be replaced?",
+      "expected_sources": [],
+      "expected_terms": [],
+      "retrieved": [
+        {
+          "id": "life-support:routine-check-ls-01",
+          "score": 0.3133765891495977
+        }
+      ],
+      "recall_at_3": null,
+      "retrieval_abstained": false
+    },
+    {
+      "id": "fuel",
+      "question": "How much fuel is currently in the propulsion tanks?",
+      "expected_sources": [],
+      "expected_terms": [],
+      "retrieved": [
+        {
+          "id": "propulsion:thruster-startup-eng-02",
+          "score": 0.16548981186180287
+        }
+      ],
+      "recall_at_3": null,
+      "retrieval_abstained": false
+    }
+  ]
+}
