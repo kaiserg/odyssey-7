@@ -1,0 +1,40 @@
+{
+  "date": "2026-10-20",
+  "hardware": "Apple M5 Pro, 48 GB",
+  "model": "qwen3:4b",
+  "model_id": "359d7dd4bcda",
+  "port": 8001,
+  "results": [
+    {
+      "question": "What do I do when oxygen pressure drops?",
+      "answer": "I understand you're asking about oxygen pressure drops, but **I don't have access to the *Odyssey-7* manual** (it's not a real spacecraft\u2014this appears to be a fictional reference, likely from *Star Trek* or another source). **There is no such thing as an \"Odyssey-7\" ship in reality**\u2014this is a common mix-up with the *Odyssey* from *Star Trek* (which also doesn't exist) or other fictional works.  \n\n**Instead, I'll give you universal emergency steps for *any* closed environment where oxygen pressure drops** (e.g., spacecraft, submarines, high-altitude aircraft, or even a sealed room). These are based on real-world safety protocols from NASA, aviation, and emergency medicine. **Do not wait for a manual\u2014act immediately**:\n\n---\n\n### \ud83d\udd34 Critical Steps to Take When Oxygen Pressure Drops (Universal Protocol)\n1. **Alert others immediately**  \n   \u2192 Shout, \"OXYGEN CRITICAL! LEAK OR FAILURE!\" (if in a group).  \n   \u2192 Activate emergency alarms (if available).\n\n2. **Check for the cause** (do this *quickly*):  \n   - Is there a visible leak? (e.g., hissing sound, smoke, wetness)  \n   - Is the system failing? (e.g., oxygen tanks low, filters clogged)  \n   - *Do not* assume it's a \"ship-specific\" issue\u2014this is a life-threatening emergency in **any** sealed environment.\n\n3. **Seal the affected area** (if safe to do so):  \n   - Close doors, hatches, or windows to prevent oxygen loss.  \n   - *Do not* enter hazardous zones (e.g., if there's fire or toxic gas).\n\n4. **Use backup oxygen** (if available):  \n   - If your environment has a backup system (e.g., emergency oxygen masks, SCUBA tanks, or a secondary life support), activate it **immediately**.  \n   - *Do not* delay\u2014hypoxia (low oxygen) can cause loss of consciousness in **< 2 minutes**.\n\n5. **Evacuate if critical**:  \n   - If oxygen drops below 19.5% (safe level) *and* you can't fix it quickly:  \n     \u2192 Leave the area **now**.  \n     \u2192 Go to the nearest emergency exit or oxygen-rich zone.  \n     \u2192 If in space: Use the spacecraft's emergency escape system (e.g., EVA suit, lifeboat).\n\n---\n\n### \u26a0\ufe0f Why this matters (real-world context)\n- **Oxygen drops = hypoxia**: Without oxygen, brain damage occurs in **< 1 minute**. Consciousness fades in **< 2 minutes**.  \n- **No \"Odyssey-7\" exists**: If you're in a *real* spacecraft (e.g., ISS, SpaceX Crew Dragon), protocols are standardized by NASA/ISO. **You don't need a manual**\u2014training and drills prepare you for this.  \n- **If you're in a game or fiction**: Check the *actual* source (e.g., *Star Trek* has oxygen protocols in episodes like \"The Next Generation\"). But **in real life, follow these steps**.\n\n---\n\n### \ud83d\udca1 Key Takeaway\n**When oxygen pressure drops, your priority is:  \n\u2192 Alert \u2192 Check cause \u2192 Seal \u2192 Use backup \u2192 Evacuate if needed.**  \n**Do not wait for a manual\u2014this is a life-or-death emergency.**  \n\nIf you're in a *real* situation (e.g., a spacecraft, submarine, or high-altitude environment), **your training or emergency kit will have the specific steps**\u2014but the universal protocol above works for 99% of cases.  \n\nIf you clarify your context (e.g., \"I'm playing a game,\" \"I'm in a real spacecraft,\" or \"I'm a scuba diver\"), I can give more targeted advice! But **for now: act fast\u2014oxygen drops are urgent**.  \n\n*(Note: I have no access to fictional ship manuals, so I'm giving real-world emergency guidance.)*",
+      "sources": [],
+      "mode": "base"
+    },
+    {
+      "question": "What do I do when oxygen pressure drops?",
+      "answer": "Based **only** on the provided manual excerpts:  \n\nWhen oxygen pressure drops **below 19.0 kPa**, you must:  \n1. Activate the training alert  \n2. Confirm the Life Support Panel LS-P1  \n3. Switch the simulated auxiliary circuit AUX-02  \n4. Notify the bridge  \n5. Record incident MR-17  \n\nThis procedure is defined in **Oxygen Emergency LS-04** [1].  \n\n*Note: The manual does not specify actions for pressure drops *above* 19.0 kPa (the nominal safe level is 21.0 kPa per [2]).*  \n\n**Citation**: [1]",
+      "sources": [
+        {
+          "source": "life-support.md",
+          "section": "Oxygen Emergency LS-04",
+          "text": "Oxygen Emergency LS-04\nFictional simulation only. When oxygen pressure falls below 19.0 kPa, activate the training alert, confirm the Life Support Panel LS-P1, switch the simulated auxiliary circuit AUX-02, notify the bridge and record incident MR-17.",
+          "score": 0.289
+        },
+        {
+          "source": "life-support.md",
+          "section": "Routine Check LS-01",
+          "text": "Routine Check LS-01\nNominal fictional pressure is 21.0 kPa. Confirm green panel LS-P1 and inspect the CO2 scrubber.\n",
+          "score": 0.074
+        }
+      ],
+      "mode": "rag"
+    },
+    {
+      "question": "Who is the captain?",
+      "answer": "Not found in the provided manual.",
+      "sources": [],
+      "mode": "rag"
+    }
+  ]
+}

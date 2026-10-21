@@ -4,7 +4,7 @@ import httpx
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
-from pydantic import BaseModel
+from pydantic import BaseModel, Field, field_validator
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 ROOT=Path(__file__).resolve().parents[1]
@@ -17,7 +17,16 @@ for file in sorted((ROOT/'documents').glob('*.md')):
 vectorizer=TfidfVectorizer(stop_words='english',ngram_range=(1,2))
 index=vectorizer.fit_transform([c['text'] for c in chunks])
 class Ask(BaseModel):
-    question:str
+    question: str = Field(min_length=1, max_length=4000)
+
+    @field_validator('question')
+    @classmethod
+    def normalize_question(cls, value: str) -> str:
+        value = value.strip()
+        if not value:
+            raise ValueError('Question must not be blank')
+        return value
+
     mode:str='rag'
 @app.get('/')
 def home():return FileResponse(ROOT/'app/static/index.html')
@@ -30,11 +39,18 @@ async def ask(q:Ask):
     if q.mode=='rag' and q.question.strip():
         scores=cosine_similarity(vectorizer.transform([q.question]),index)[0]
         hits=[dict(chunks[i],score=round(float(scores[i]),3)) for i in sorted(range(len(scores)),key=lambda i:-scores[i])[:3] if scores[i]>0]
+    if q.mode == 'rag' and not hits:
+        return {'answer': 'Not found in the provided manual.', 'sources': [], 'mode': q.mode}
     context='\n'.join(f"[{i}] {x['source']} / {x['section']}: {x['text']}" for i,x in enumerate(hits,1))
     system=('Use ONLY these fictional ship manual excerpts. Cite [1], [2]. If unsupported say Not found in the provided manual.\n'+context) if q.mode=='rag' else 'You have no Odyssey-7 manual. Admit uncertainty about ship-specific facts.'
     try:
         async with httpx.AsyncClient(timeout=90) as client:
-            r=await client.post(os.getenv('OLLAMA_URL','http://localhost:11434')+'/api/chat',json={'model':os.getenv('OLLAMA_MODEL','qwen3:4b'),'stream':False,'messages':[{'role':'system','content':system},{'role':'user','content':q.question}],'options':{'temperature':0.2}})
-            r.raise_for_status();answer=r.json()['message']['content']
-    except (httpx.HTTPError,KeyError,ValueError) as e:raise HTTPException(503,'Ollama unavailable. Start Ollama and pull qwen3:4b.') from e
+            r=await client.post(os.getenv('OLLAMA_URL','http://localhost:11434')+'/api/chat',json={'model':os.getenv('OLLAMA_MODEL','qwen3:4b'),'stream':False,'think':False,'messages':[{'role':'system','content':system},{'role':'user','content':q.question}],'options':{'temperature':0.2}})
+            r.raise_for_status()
+            answer = r.json()['message']['content']
+            if isinstance(answer, str) and '</think>' in answer:
+                answer = answer.split('</think>', 1)[1].strip()
+            if not isinstance(answer, str) or not answer.strip():
+                raise ValueError('Ollama returned an empty answer')
+    except (httpx.HTTPError,KeyError,ValueError,TypeError) as e:raise HTTPException(503,'Ollama unavailable. Start Ollama and pull qwen3:4b.') from e
     return {'answer':answer,'sources':hits,'mode':q.mode}

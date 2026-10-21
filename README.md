@@ -22,3 +22,18 @@ Open http://127.0.0.1:8000 and compare **BASE** and **RAG** modes with the oxyge
 See [step-by-step tutorial](docs/TUTORIAL.md) and [task roadmap](docs/ROADMAP.md).
 
 **Educational simulation only:** spaceship procedures are fictional, not real safety instructions.
+
+## Validation status — 2026-10-20
+
+Phase 1 integration is validated on an Apple M5 Pro with 48 GB RAM and Python
+3.13.15. Install the captured environment with `uv pip install -r requirements.lock.txt`;
+run `uv pip check` and `python -m pytest -q` (15 tests). The test client currently
+emits an upstream Starlette/httpx deprecation warning; tests still pass.
+
+The local HTTP smoke record is [docs/phase1-smoke.json](docs/phase1-smoke.json).
+It records real responses, not benchmark scores. RAG returns a fixed abstention
+without inference when retrieval finds no matches. Matched excerpts retain file,
+section, text and score; model citation correctness still needs evaluation.
+Browser visual verification is pending; no cockpit reference image is present in
+the repository. Semantic embeddings, evaluation and MLX LoRA remain future phases.
+See the [reproduction commands](docs/TUTORIAL.md#phase-1-reproduce-the-local-integration-check).
