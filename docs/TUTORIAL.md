@@ -85,7 +85,8 @@ allows 120 seconds and chat allows 90 seconds; cold loading can require a retry.
 The numeric labels correspond to the source list for that answer, not global file
 numbers. Source details are populated with text nodes so manual content is displayed
 as text. Chat controls are disabled during each request to keep answers and sources
-in order. Unsupported fine-tuned mode remains disabled and the API rejects it.
+in order. Fine-tuned mode is unavailable by default; it is enabled only with the optional
+MLX backend and a validated local adapter.
 
 ## 4. Measure before changing the pipeline
 
@@ -111,26 +112,34 @@ Do not tune on these ten questions and then describe the result as held-out accu
 Future changes should add separate development/test questions. A retrieved section
 and an in-range citation do not prove that every claim in the answer is supported.
 
-## 5. Understand the future LoRA experiment
+## 5. Compare a small LoRA adapter
 
 RAG supplies facts at answer time without changing weights. LoRA trains a small
-adapter to influence response style or format. The next phase will validate MLX-LM
-and a small compatible model, prepare separate train/validation examples for
-consistent formatting, and run a tiny pipeline check before any training experiment.
-The evaluation questions must not become training examples.
+adapter to influence response style or format. The implemented optional experiment
+uses a pinned Qwen3 0.6B 4-bit model in a separate MLX environment, 24 synthetic
+format examples and eight validation examples. None contain the ship manual facts
+or evaluation questions. Preflight and a one-step smoke precede the bounded
+40-step training run.
+
+Follow [FINETUNING.md](FINETUNING.md) for every reproduction command and recorded
+pipeline check. The three-way evaluation uses the same MLX model and prompts;
+RAG and Fine-tuned + RAG receive identical model messages. A strict two-line format
+check improved from 1/6 to 5/6 supported answers, but some facts remain wrong and
+the adapted navigation answer lost procedural steps. A format adapter is not a
+substitute for retrieval quality or a stronger answer model.
 
 ```mermaid
 flowchart LR
-    B[Compatible small base model] --> T[Planned MLX LoRA training]
-    D[Separate formatting examples] --> T
-    T --> A[Adapter]
-    A --> R[Fine-tuned model plus same retrieved excerpts]
-    R --> E[Same evaluation questions]
+    B[Pinned local Qwen3 0.6B] --> T[MLX rank-4 QLoRA]
+    D[24 synthetic format examples] --> T
+    T --> A[Validated local adapter]
+    B --> R[Unadapted RAG]
+    A --> F[Fine-tuned plus RAG]
+    C[Same retrieved excerpts] --> R
+    C --> F
+    R --> E[Same ten evaluation questions]
+    F --> E
 ```
-
-No adapter, training result or fine-tuned inference path exists yet. An adapter
-should not be used to memorize the manuals. Any later three-way comparison must
-report model identities and account for differences between Ollama and MLX runtimes.
 
 ## Validation boundaries
 
@@ -138,6 +147,8 @@ The Phase 1 [HTTP smoke record](phase1-smoke.json) predates semantic retrieval.
 It captures real local responses, including unsupported claims made by BASE; it is
 not a current benchmark. Phase 2 reports use the new prompts and section loader.
 The tests cover API paths, prompt isolation, document traceability, vector ranking,
-cache reuse, embedding failures and evaluation scoring. Browser automation was
+cache reuse, embedding failures, evaluation scoring, dataset separation, adapter
+readiness, interpreter paths and worker timeout cleanup. Phase 3 adds the shared
+two-line response instruction; earlier reports retain their original prompts/results. Browser automation was
 unavailable, so responsive visual checks remain pending. All ship procedures are
 fictional and unsuitable for real-world safety use.

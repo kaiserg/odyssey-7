@@ -1,0 +1,21 @@
+# Tiny educational QLoRA run; model downloaded separately and validated first.
+model: .models/qwen3-0.6b-4bit
+train: true
+data: training/data
+fine_tune_type: lora
+num_layers: 4
+batch_size: 1
+iters: 40
+learning_rate: 0.0001
+max_seq_length: 384
+mask_prompt: true
+seed: 7
+val_batches: 4
+steps_per_report: 5
+steps_per_eval: 10
+save_every: 40
+adapter_path: adapters/odyssey-format
+lora_parameters:
+  rank: 4
+  dropout: 0.0
+  scale: 8.0

@@ -47,8 +47,7 @@ returns a routine-check section for the unsupported scrubber replacement interva
 This illustrates why semantic similarity cannot guarantee answerability.
 The threshold is an initial demonstration setting; no held-out calibration or
 statistical significance is claimed. Model updates and floating-point differences
-can change outputs. Review raw responses alongside every metric. A fine-tuned
-comparison is deferred until a validated MLX pipeline and adapter exist.
+can change outputs. Review raw responses alongside every metric. The separate MLX comparison below uses a validated pipeline and a smaller base model.
 
 ## Recorded answer comparison
 
@@ -66,3 +65,44 @@ that metric as zero honest uncertainty. BASE also supplied invented nominal pres
 reset codes and thruster procedures in some supported-question responses. The saved
 raw outputs include unsupported real-world claims; they are model artifacts to
 inspect, not instructional material. No claim-level factuality score is reported.
+
+## MLX three-way formatting experiment
+
+`mlx-three-way.json` records the same ten questions using the pinned Qwen3 0.6B
+4-bit MLX model in every mode. Both RAG modes receive identical model messages.
+Only Fine-tuned + RAG loads the 40-step rank-4 adapter. All modes receive the same
+two-line formatting instruction, use greedy sampling, seed 7 and a 256-token limit.
+Commands and training evidence are in [the MLX tutorial](../docs/FINETUNING.md).
+
+| Metric | Base | RAG | Fine-tuned + RAG |
+| --- | --- | --- | --- |
+| Strict format, six supported | 0/6 | 1/6 | 5/6 |
+| Mean expected-term coverage | 0.000 | 0.500 | 0.533 |
+| Cites expected section, six supported | 0/6 | 6/6 | 6/6 |
+| Canonical abstention, four unsupported | 0/4 | 4/4 | 4/4 |
+| Out-of-range numeric citation labels | 2 | 0 | 0 |
+
+The formatting result is useful but narrow. Manual review of the raw answers shows:
+
+- Both RAG variants gave **19.0 kPa** as nominal oxygen pressure, where the expected
+  routine-check value is **21.0 kPa**. Merely citing the right section did not prevent
+  mixing facts from adjacent excerpts.
+- Adapted navigation answered the docking prohibition but **omitted the reset
+  sequence**, which unadapted RAG had provided. Better formatting can lose content.
+- The adapted route answer supplied the correct two confirmations; unadapted RAG
+  only named the source file for that question.
+- Both RAG variants correctly answered the power question with “15 percent,” but
+  the fixture expects “fifteen,” so substring coverage scores that answer as zero.
+  The metric was kept unchanged rather than revised after seeing the outputs.
+- BASE expressed uncertainty on several unsupported questions without using the
+  canonical phrase; its 0/4 metric is not a measure of all honest uncertainty.
+- Three unsupported questions had no retrieval hits, so their RAG abstentions were
+  application rules rather than evidence of adapter learning. The scrubber question
+  did reach both models and both abstained.
+
+This is one small, fixed demonstration set, not a claim of statistical significance
+or broad generalization. The synthetic validation loss fell from 3.020 to 0.001;
+near-template training/validation examples make that an easy task, not proof of
+better document Q&A. No further training was selected using these evaluation
+answers. Earlier Ollama Qwen3 4B results are a separate experiment with different
+weights, runtime, prompts and sampling, and cannot establish an adapter effect.

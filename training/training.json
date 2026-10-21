@@ -1,0 +1,29 @@
+{
+  "config_sha256": "07ed3d26c2c5f23ed52eb6f3c1a13183b2f77db128ddbeaa05eb10ed43511478",
+  "data": {
+    "train": {
+      "rows": 24,
+      "sha256": "da9569557335087f48034b04bb5840e2e1635da88b1eca8cf322bf780f552a54"
+    },
+    "valid": {
+      "rows": 8,
+      "sha256": "c6853cde506def6a05e112af404626bd8491e5bb2a1fde35209928e3d5a6075e"
+    }
+  },
+  "model": {
+    "repo": "mlx-community/Qwen3-0.6B-4bit",
+    "revision": "73e3e38d981303bc594367cd910ea6eb48349da8",
+    "local_path": ".models/qwen3-0.6b-4bit",
+    "license": "Apache-2.0"
+  },
+  "iterations": 40,
+  "elapsed_seconds": 3.2538676660042256,
+  "command": [
+    "/Users/mike/Projects/odyssey-7-ai-lab/.venv-mlx/bin/python",
+    "-m",
+    "mlx_lm",
+    "lora",
+    "--config",
+    "training/lora.yaml"
+  ]
+}

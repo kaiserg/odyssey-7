@@ -1,9 +1,10 @@
 # Odyssey-7 — RAG & Fine-Tuning Lab 🚀
 
 A small, local-first AI engineering portfolio project with a spaceship cockpit chat.
-Compare **Base LLM vs semantic RAG** using fictional ship manuals, trace every excerpt
-to its document, and reproduce a ten-question evaluation. **MLX LoRA is planned,
-not implemented.** The fine-tuned mode stays disabled.
+Compare **Base LLM vs semantic RAG vs Fine-tuned + RAG** using fictional ship manuals,
+trace every excerpt to its document, and reproduce a ten-question evaluation. The
+optional MLX experiment trains a tiny QLoRA adapter for response formatting; it
+enables the fine-tuned control only after local adapter validation.
 
 ## Quick start (Apple Silicon / Python 3.13)
 
@@ -38,7 +39,7 @@ python -m scripts.evaluate --generate --output runs/base-rag.json
 ```
 
 The development environment is an M5 Pro with 48 GB RAM and Python 3.13.15.
-The offline suite has 24 passing tests and one upstream Starlette/httpx deprecation
+The offline suite has 32 passing tests and one upstream Starlette/httpx deprecation
 warning. [Recorded retrieval results](evaluation/vector-retrieval.json) show recall@3
 of 1.0 on six answerable questions and retrieval abstention on 3/4 unsupported
 questions. These tiny fixture checks are educational, not a general accuracy claim.
@@ -58,6 +59,7 @@ Configuration (set before starting the server):
 | `EMBEDDING_MODEL` | `qwen3-embedding:4b` | Local embeddings |
 | `RAG_RETRIEVER` | `vector` | Set `tfidf` for the lexical baseline |
 | `RAG_MIN_SCORE` | `0.55` | Minimum vector cosine similarity |
+| `CHAT_BACKEND` | `ollama` | Set `mlx` for a controlled three-mode comparison |
 
 Restart after changing manuals or models. A missing embedding model returns an
 explicit error; the app does not silently switch retrievers. Similarity is not
@@ -65,6 +67,29 @@ confidence: related excerpts can still fail to answer a question.
 
 See the [English tutorial](docs/TUTORIAL.md), [evaluation guide](evaluation/README.md)
 and [roadmap](docs/ROADMAP.md). Browser visual acceptance and a supplied cockpit
-reference remain pending. No fine-tuning, adapter or three-way comparison is claimed.
+reference remain pending.
+
+## Optional Apple Silicon LoRA experiment
+
+Follow [the MLX tutorial](docs/FINETUNING.md) to prepare the separate `.venv-mlx`,
+download a pinned Qwen3 0.6B 4-bit model, validate the pipeline, run a one-step smoke,
+then train a bounded 40-step rank-4 adapter on 24 synthetic formatting examples.
+The eight validation examples and ten evaluation questions stay separate.
+Model weights and adapters are local artifacts, not committed binaries.
+
+The [recorded three-way comparison](evaluation/mlx-three-way.json) uses the same
+MLX model for every mode. Strict two-line format compliance improved from **1/6**
+for RAG to **5/6** with the adapter. This is not a general answer-quality improvement:
+the adapted navigation answer omitted the reset steps, and both RAG variants gave
+the wrong nominal oxygen pressure. See [results and limitations](evaluation/README.md#mlx-three-way-formatting-experiment).
+
+After reproducing and validating the adapter:
+
+```bash
+CHAT_BACKEND=mlx .venv/bin/uvicorn app.main:app --reload
+```
+
+All three cockpit modes then use the same small MLX base model; Fine-tuned + RAG
+adds the adapter. The default Ollama 4B Base/RAG demo remains a separate experiment.
 
 **Educational simulation only:** spaceship procedures are fictional, not real safety instructions.

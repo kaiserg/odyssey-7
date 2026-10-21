@@ -1,0 +1,50 @@
+{
+  "port": 8001,
+  "question": "How many waypoint confirmations are required for an Asterion route?",
+  "config": {
+    "retriever": "vector",
+    "embedding_model": "qwen3-embedding:4b",
+    "chat_backend": "mlx",
+    "chat_model": "qwen3-0.6b-4bit",
+    "fine_tuned_available": true
+  },
+  "results": [
+    {
+      "answer": "Answer: <answer> 0 </answer>  \nSources: <citation> 1 </citation>",
+      "sources": [],
+      "mode": "base"
+    },
+    {
+      "answer": "Answer: 2 waypoint confirmations are required for an Asterion route. Sources: [1].",
+      "sources": [
+        {
+          "id": "navigation:route-planning-nav-03",
+          "source": "navigation.md",
+          "section": "Route Planning NAV-03",
+          "text": "## Route Planning NAV-03\nTwo waypoint confirmations are required before activating an Asterion catalog route.",
+          "line_start": 4,
+          "sha256": "569c55bf60d5735db80066a3f4e7f01bfc0524a9d41508e967a81ea15b358ccf",
+          "url": "/api/sources/navigation:route-planning-nav-03",
+          "score": 0.8604583740234375
+        }
+      ],
+      "mode": "rag"
+    },
+    {
+      "answer": "Answer: Two waypoint confirmations are required.\nSources: [1]",
+      "sources": [
+        {
+          "id": "navigation:route-planning-nav-03",
+          "source": "navigation.md",
+          "section": "Route Planning NAV-03",
+          "text": "## Route Planning NAV-03\nTwo waypoint confirmations are required before activating an Asterion catalog route.",
+          "line_start": 4,
+          "sha256": "569c55bf60d5735db80066a3f4e7f01bfc0524a9d41508e967a81ea15b358ccf",
+          "url": "/api/sources/navigation:route-planning-nav-03",
+          "score": 0.8604583740234375
+        }
+      ],
+      "mode": "finetuned"
+    }
+  ]
+}

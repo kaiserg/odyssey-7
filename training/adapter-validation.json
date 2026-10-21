@@ -1,0 +1,14 @@
+{
+  "timestamp_utc": "2026-10-21T00:52:50.639458+00:00",
+  "model_path": "/Users/mike/Projects/odyssey-7-ai-lab/.models/qwen3-0.6b-4bit",
+  "model_config_sha256": "15d3ac26c043ae477273ed5802ee0f0b33bb14f18c9d3dd70910c02d906e3f1f",
+  "model_weights": {
+    "model.safetensors": {
+      "bytes": 335450584,
+      "mtime_ns": 1792543912935511078
+    }
+  },
+  "adapter_sha256": "faa0bdb715d64438be1ff977e59c953880ad049121b8012a11a70e94e9a84a8c",
+  "adapter_config_sha256": "07538fedb3b26ac2c7fd145a0d4d7396effd1fb1392e8435692505797b88bd7a",
+  "smoke_answer": "Answer: Select CHECK-101.\nSources: [2]"
+}

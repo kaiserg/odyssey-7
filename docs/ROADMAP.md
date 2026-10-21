@@ -45,26 +45,52 @@ Citation checks are label/section heuristics, not claim-level factuality verific
 See `evaluation/README.md` for commands and metric limitations.
 
 Phase 2 is complete at the API and local inference level. Browser acceptance remains
-pending in Phase 1; the next implementation phase is MLX pipeline validation, with
-training deferred until the pipeline and configuration pass their own checks.
+pending in Phase 1; Phase 3 below records the subsequent MLX pipeline validation and bounded training.
 
 ## Phase 3: Fine-tuning with LoRA
 
-- [ ] Validate MLX-LM and compatible Qwen model on Apple Silicon
-- [ ] Create small train/validation JSONL for consistent response FORMAT
-- [ ] Train LoRA adapter and compare before/after
-- [ ] Enable Fine-tuned + RAG UI mode only when genuinely functional
+- [x] Validate MLX-LM and compatible Qwen model on Apple Silicon
+- [x] Create small train/validation JSONL for consistent response FORMAT
+- [x] Train LoRA adapter and compare before/after
+- [x] Enable Fine-tuned + RAG UI mode only when genuinely functional
 
-No training, adapter, MLX inference path or fine-tuned comparison is claimed. Validate
-a small pipeline and configuration before any training; keep evaluation questions
-out of training data.
+Completed on the M5 Pro with MLX 0.32.4 and MLX-LM 0.32.2 in a separate optional
+environment. Pinned `mlx-community/Qwen3-0.6B-4bit` revision is recorded in
+`training/model.json`. Preflight checked the actual masked-prompt data path, maximum
+127 tokens, Metal access, finite logits and generation before any weight update.
+A one-step adapter train/reload smoke passed before the bounded 40-step run.
+
+The run used 24 synthetic format examples and eight separate validation examples,
+rank 4 on four layers, about 0.360M trainable parameters (0.060% of the base).
+The manuals and ten evaluation questions were not used for training. Model weights,
+caches and the approximately 1.4 MB adapter remain ignored local artifacts;
+small configs, data, logs and measured reports are tracked.
+
+`evaluation/mlx-three-way.json` compares all three modes on the same small MLX base.
+Both RAG variants receive identical model messages. Strict supported-answer format
+compliance was 1/6 without the adapter and 5/6 with it. Both cited expected sections
+on 6/6 and canonically abstained on 4/4 unsupported questions; three of those
+abstentions happen before model generation. Both still gave the wrong nominal
+oxygen pressure, and the adapted navigation answer omitted reset steps. This is a
+formatting demonstration, not a general accuracy improvement.
+
+The API enables fine-tuned mode only with `CHAT_BACKEND=mlx` and a successfully
+validated compatible local adapter. A real HTTP check exercised all three modes;
+32 offline tests pass, and both environment dependency checks pass. The worker
+preserves its virtual-environment interpreter path, stays offline and has bounded
+generation/timeout cleanup. Browser visual acceptance is still pending above.
+
+See `docs/FINETUNING.md`, `training/preflight.json`, `training/smoke.json`,
+`training/training.log`, `training/adapter-validation.json` and
+`training/http-smoke.json` for reproduction and evidence. No larger training run
+or evaluation-driven hyperparameter sweep was performed.
 
 ## Phase 4: Portfolio polish
 
 - [x] Architecture Mermaid diagrams and reproducible tutorial commands
 - [ ] UI screenshots and reference-based cockpit refinement
 - [x] Automated API/retrieval tests and reproducible evaluation runner
-- [ ] Complete three-way comparison with measured results
+- [x] Complete three-way comparison with measured results
 - [x] Explain RAG vs fine-tuning, limitations and local setup
 
 **Scope guard:** no large corpus, no enterprise platform, no general chatbot

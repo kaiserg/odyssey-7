@@ -5,3 +5,6 @@ __pycache__/
 runs/
 adapters/
 *.safetensors
+
+.venv-mlx/
+.models/

@@ -1,0 +1,29 @@
+Loading configuration file training/lora.yaml
+Loading pretrained model
+Loading datasets
+Training
+╭─ mlx_lm.lora ────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│    model           .models/qwen3-0.6b-4bit                                                                           │
+│    type            lora · 4 layers · rank 4                                                                          │
+│    dataset         training/data                                                                                     │
+│    optimizer       adam · lr 1.0e-04                                                                                 │
+│    batch · iters   1 · 40                                                                                            │
+│    max seq         384                                                                                               │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+Trainable parameters: 0.060% (0.360M/596.050M)
+  iter   train_loss     tok/s     tokens
+     1    val 3.020    0.11s
+     5    1.836 ▼      314      0.1k
+    10    val 0.029    0.09s
+    10    0.130 ▼      682      0.2k
+    15    0.029 ▼      671      0.3k
+    20    val 0.004    0.09s
+    20    0.006 ▼      676      0.4k
+    25    0.003 ▼      658      0.5k
+    30    val 0.001    0.09s
+    30    0.001 ▼      679      0.6k
+    35    0.001 ▼      664      0.7k
+    40    val 0.001    0.09s
+    40    0.001 ▼      649      0.8k
+  save  0000040_adapters.safetensors
+train ██████████████████████████████ 100% ·    40/40

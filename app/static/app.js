@@ -75,7 +75,7 @@ document.getElementById('form').onsubmit = async event => {
     sources.textContent = 'Request failed';
     msg('SYSTEM ERROR', error.message);
   } finally {
-    controls.forEach((x, i) => { x.disabled = previous[i]; });
+    controls.forEach((x, i) => { x.disabled = x.id === 'finetuned-mode' ? x.dataset.available !== 'true' : previous[i]; });
     chat.setAttribute('aria-busy', 'false');
     question.focus();
   }
@@ -93,5 +93,9 @@ fetch('/api/docs').then(r => {
   }
 }).catch(error => { document.getElementById('docs').textContent = error.message; });
 fetch('/api/config').then(r => r.json()).then(config => {
-  document.getElementById('retrieval-status').textContent = `● RETRIEVAL ${config.retriever.toUpperCase()}`;
+  document.getElementById('retrieval-status').textContent = `● ${config.retriever.toUpperCase()} / ${config.chat_backend.toUpperCase()} / ${config.chat_model}`;
+  const fineTuned = document.getElementById('finetuned-mode');
+  fineTuned.dataset.available = String(config.fine_tuned_available);
+  fineTuned.disabled = chat.getAttribute('aria-busy') === 'true' || !config.fine_tuned_available;
+  fineTuned.textContent = config.fine_tuned_available ? 'FINE-TUNED + RAG' : 'FINE-TUNED + RAG · UNAVAILABLE';
 }).catch(() => { document.getElementById('retrieval-status').textContent = '● RETRIEVAL STATUS UNKNOWN'; });

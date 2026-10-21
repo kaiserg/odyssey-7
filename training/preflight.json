@@ -1,0 +1,38 @@
+{
+  "timestamp_utc": "2026-10-21T00:52:01.349383+00:00",
+  "platform": "macOS-26.5.1-arm64-arm-64bit-Mach-O",
+  "python": "3.13.15",
+  "mlx": "0.32.4",
+  "mlx_lm": "0.32.2",
+  "model": {
+    "repo": "mlx-community/Qwen3-0.6B-4bit",
+    "revision": "73e3e38d981303bc594367cd910ea6eb48349da8",
+    "local_path": ".models/qwen3-0.6b-4bit",
+    "license": "Apache-2.0"
+  },
+  "config_sha256": "07ed3d26c2c5f23ed52eb6f3c1a13183b2f77db128ddbeaa05eb10ed43511478",
+  "data": {
+    "train": {
+      "rows": 24,
+      "sha256": "da9569557335087f48034b04bb5840e2e1635da88b1eca8cf322bf780f552a54"
+    },
+    "valid": {
+      "rows": 8,
+      "sha256": "c6853cde506def6a05e112af404626bd8491e5bb2a1fde35209928e3d5a6075e"
+    }
+  },
+  "token_lengths": {
+    "train": {
+      "max_tokens": 123,
+      "min_tokens": 122
+    },
+    "valid": {
+      "max_tokens": 127,
+      "min_tokens": 124
+    }
+  },
+  "metal_available": true,
+  "finite_forward_pass": true,
+  "base_smoke_answer": "Answer: [1] Training beacon Z108 has a violet status lamp.  \nSources: [1]",
+  "training_performed": false
+}
