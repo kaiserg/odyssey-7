@@ -2,8 +2,10 @@
 
 **Idioma / Language:** Español · [English](../../README.md)
 
-Odyssey-7 es un laboratorio educativo que funciona con modelos locales. Su cabina
-espacial permite comparar un modelo sin documentos, un sistema RAG y un modelo
+Odyssey-7 es un laboratorio educativo que funciona con modelos locales. Su objetivo
+es aprender mediante tutoriales paso a paso, experimentos reproducibles y una demo
+local usable. Su cabina espacial permite comparar un modelo sin documentos, un
+sistema RAG y un modelo
 con un adaptador de formato más RAG. El objetivo es entender cada decisión,
 inspeccionar las fuentes y reproducir los experimentos, incluidos sus errores.
 

@@ -12,7 +12,7 @@ los navegadores ni exactitud general del modelo.
 | 1. Cabina inicial | Interfaz adaptable, manuales ficticios, FastAPI, Ollama, Base/RAG y referencia TF-IDF; comprobaciones HTTP y posteriores pruebas en Chrome | [Inicio rápido](README.md) y [recorrido](DEMO.md) |
 | 2. RAG semántico | Embeddings locales, FAISS, fragmentos por sección, metadatos, enlaces a fuentes y evaluación de recuperación | [Tutorial RAG](TUTORIAL.md) y [evaluación](EVALUACION.md) |
 | 3. LoRA con MLX | Revisión fija del modelo, entorno separado, datos sintéticos, comprobaciones previas, prueba de un paso, entrenamiento de 40 pasos y comparación de tres modos | [Guía LoRA](FINETUNING.md) |
-| 4. Presentación del portafolio | Cabina refinada, esquema SVG original, historial de fuentes por respuesta, diagramas, capturas reales y guion de demostración | [Demostración](DEMO.md) y [validación visual](VALIDACION_NAVEGADOR.md) |
+| 4. Refinamiento del tutorial y la demo | Cabina refinada, esquema SVG original, historial de fuentes por respuesta, diagramas, capturas reales y guion de demostración | [Demostración](DEMO.md) y [validación visual](VALIDACION_NAVEGADOR.md) |
 
 La documentación en español añade una ruta de estudio paralela a la inglesa.
 No modifica el código, la interfaz, los manuales ni los datos de entrenamiento o

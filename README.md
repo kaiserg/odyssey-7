@@ -2,7 +2,8 @@
 
 **Language / Idioma:** English · [Español](docs/es/README.md)
 
-A small, local-first AI engineering portfolio project with a spaceship cockpit chat.
+A small, local-first AI engineering learning lab with a spaceship cockpit chat.
+Learn through step-by-step tutorials, reproducible experiments, and a usable local demo.
 Compare **Base LLM vs semantic RAG vs Fine-tuned + RAG** using fictional ship manuals,
 trace every excerpt to its document, and reproduce a ten-question evaluation. The
 optional MLX experiment trains a tiny QLoRA adapter for response formatting; it

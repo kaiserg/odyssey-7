@@ -171,5 +171,5 @@ recover after an error. The fine-tuned mode is disabled until MLX and a compatib
 validated adapter are configured. On narrow screens, chat comes first and the archive
 and instruments follow underneath. Conversations reset when the page reloads.
 
-Use [DEMO.md](DEMO.md) for a short portfolio walkthrough and
+Use [DEMO.md](DEMO.md) for a short guided walkthrough and
 [BROWSER_VALIDATION.md](BROWSER_VALIDATION.md) for observed browser checks.

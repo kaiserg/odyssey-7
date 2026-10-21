@@ -87,7 +87,7 @@ See `docs/FINETUNING.md`, `training/preflight.json`, `training/smoke.json`,
 `training/http-smoke.json` for reproduction and evidence. No larger training run
 or evaluation-driven hyperparameter sweep was performed.
 
-## Phase 4: Portfolio polish
+## Phase 4: Tutorial and demo polish
 
 - [x] Architecture Mermaid diagrams and reproducible tutorial commands
 - [x] UI screenshots and reference-based cockpit refinement
@@ -106,7 +106,7 @@ exercise Base/RAG/fine-tuned generation, captain abstention, excerpt expansion,
 document hash links, old-answer evidence restoration, mobile transmission, missing
 adapter gating and deliberate service outages with recovery. Tests remain 32 passing;
 JavaScript syntax and diff checks pass. See `docs/BROWSER_VALIDATION.md` and
-`docs/DEMO.md` for evidence, reproduction and a reviewer walkthrough.
+`docs/DEMO.md` for evidence, reproduction and a guided demonstration.
 
 The four planned demonstration phases are complete. Remaining optional work includes
 Safari/Firefox and physical-device checks, a formal accessibility audit, and a larger
