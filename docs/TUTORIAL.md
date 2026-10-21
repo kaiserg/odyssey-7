@@ -149,6 +149,25 @@ not a current benchmark. Phase 2 reports use the new prompts and section loader.
 The tests cover API paths, prompt isolation, document traceability, vector ranking,
 cache reuse, embedding failures, evaluation scoring, dataset separation, adapter
 readiness, interpreter paths and worker timeout cleanup. Phase 3 adds the shared
-two-line response instruction; earlier reports retain their original prompts/results. Browser automation was
-unavailable, so responsive visual checks remain pending. All ship procedures are
+two-line response instruction; earlier reports retain their original prompts/results. Subsequent native Chrome checks validated the cockpit at desktop and mobile
+viewport sizes; see [BROWSER_VALIDATION.md](BROWSER_VALIDATION.md) for screenshots,
+source-history checks, outage recovery and coverage limits. All ship procedures are
 fictional and unsuitable for real-world safety use.
+
+## 6. Walk through the cockpit
+
+The center screen remains the interactive chat. The left archive groups the six
+sections by manual and shows the selected answer's evidence. Each response keeps
+its own **Inspect evidence** button, so later questions do not erase its source
+traceability. Expanding a source shows the excerpt and a file/line link; following
+the link opens the document hash and exact loaded text. Similarity is not confidence.
+
+The right panel shows API configuration, a decorative original ship schematic and
+three example questions. These examples fill the input without sending. Configuration
+labels are not a live health check. Controls lock while a request is active and
+recover after an error. The fine-tuned mode is disabled until MLX and a compatible
+validated adapter are configured. On narrow screens, chat comes first and the archive
+and instruments follow underneath. Conversations reset when the page reloads.
+
+Use [DEMO.md](DEMO.md) for a short portfolio walkthrough and
+[BROWSER_VALIDATION.md](BROWSER_VALIDATION.md) for observed browser checks.

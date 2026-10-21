@@ -6,6 +6,10 @@ trace every excerpt to its document, and reproduce a ten-question evaluation. Th
 optional MLX experiment trains a tiny QLoRA adapter for response formatting; it
 enables the fine-tuned control only after local adapter validation.
 
+![Odyssey-7 cockpit with a real local answer and retrieved evidence](docs/screenshots/cockpit-desktop.png)
+
+[Mobile view](docs/screenshots/cockpit-mobile.png) · [Three-minute demo](docs/DEMO.md) · [Browser validation](docs/BROWSER_VALIDATION.md)
+
 ## Quick start (Apple Silicon / Python 3.13)
 
 Install [uv](https://docs.astral.sh/uv/) and [Ollama](https://ollama.com/), then:
@@ -66,8 +70,9 @@ explicit error; the app does not silently switch retrievers. Similarity is not
 confidence: related excerpts can still fail to answer a question.
 
 See the [English tutorial](docs/TUTORIAL.md), [evaluation guide](evaluation/README.md)
-and [roadmap](docs/ROADMAP.md). Browser visual acceptance and a supplied cockpit
-reference remain pending.
+and [roadmap](docs/ROADMAP.md). The cockpit and its chat/source interactions were
+validated in Chrome on the development Mac at desktop and mobile viewport sizes.
+See the browser-validation notes for the precise checks and remaining coverage limits.
 
 ## Optional Apple Silicon LoRA experiment
 

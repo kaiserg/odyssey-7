@@ -1,1 +1,76 @@
-<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Odyssey-7 AI Console</title><link rel="stylesheet" href="/static/style.css"><header>◈ ODYSSEY-7 <small>DOCUMENT INTELLIGENCE LAB</small></header><main><aside><h3>SHIP MANUAL</h3><div id="docs"></div><h3>RETRIEVED SECTIONS</h3><div id="sources">Awaiting query</div></aside><section><h2>ODYSSEY-7 // AI CONSOLE</h2><nav><button data-mode="rag" class="active">RAG</button><button data-mode="base">BASE</button><button data-mode="finetuned" id="finetuned-mode" disabled>FINE-TUNED + RAG · UNAVAILABLE</button></nav><div id="chat" role="log" aria-live="polite"><article><b>ODYSSEY-7 AI</b><p>Welcome aboard. Ask about the fictional ship manual.</p></article></div><form id="form"><input id="q" aria-label="Ask the ship manual" maxlength="4000" placeholder="Ask about oxygen pressure..." required><button>TRANSMIT ↗</button></form><footer>EDUCATIONAL SIMULATION · NOT REAL SAFETY ADVICE</footer></section><aside><h3>SHIP STATUS</h3><p>● DOCUMENT DB ONLINE</p><p id="retrieval-status">● RETRIEVAL LOADING</p><h3>SHIP OVERVIEW</h3><div class="ship">◇<small>ODYSSEY-7 EXPLORATION CLASS</small></div><h3>TRY A QUESTION</h3><button class="sample">What do I do when oxygen pressure drops?</button><button class="sample">How do I reset navigation?</button><button class="sample">Who is the captain?</button></aside></main><script src="/static/app.js"></script></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#0a111b">
+  <title>Odyssey-7 · Flight Deck</title>
+  <link rel="icon" href="/static/ship.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/static/style.css">
+  <script src="/static/app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#q">Skip to chat</a>
+  <header class="masthead">
+    <a class="brand" href="/" aria-label="Odyssey-7 home"><span class="brand-mark" aria-hidden="true">◈</span><span>ODYSSEY<span class="brand-number">—7</span><small>LOCAL AI ENGINEERING LAB</small></span></a>
+    <div class="mission-label"><span class="indicator" aria-hidden="true"></span> FLIGHT DECK <span class="muted">/</span> DOCUMENT INTELLIGENCE</div>
+    <span class="simulation-tag">FICTIONAL TRAINING ENVIRONMENT</span>
+  </header>
+
+  <main class="cockpit">
+    <aside class="panel archive" aria-labelledby="archive-heading">
+      <div class="panel-heading"><span class="panel-index">01</span><h2 id="archive-heading">Ship archive</h2><span id="doc-count" class="count">—</span></div>
+      <p class="panel-caption">Mission knowledge, one section at a time.</p>
+      <div id="docs" class="manual-list">Loading local manuals…</div>
+      <div class="panel-heading source-heading"><span class="panel-index">↳</span><h2>Retrieved evidence</h2><span id="source-count" class="count">0</span></div>
+      <p id="evidence-question" class="panel-caption">Sources for the latest response.</p>
+      <div id="sources" class="source-list"><div class="empty-state"><span aria-hidden="true">⌁</span><p>Your evidence appears here.<br>Ask a question in a retrieval mode.</p></div></div>
+      <div class="archive-footer" id="archive-summary">LOCAL MARKDOWN ARCHIVE</div>
+    </aside>
+
+    <section class="console panel" aria-labelledby="console-heading">
+      <div class="viewport" aria-label="Illustrated orbital view; decorative simulation artwork">
+        <div class="viewport-grid" aria-hidden="true"></div><div class="planet" aria-hidden="true"></div>
+        <div class="viewport-top"><span>ODYSSEY-7 / EXPLORATION CLASS</span><span>SIMULATION VIEW</span></div>
+        <div class="viewport-title"><span class="eyebrow">KNOWLEDGE IS YOUR FLIGHT PLAN</span><h1 id="console-heading">Ask the ship.</h1><p>Find the facts. Follow the evidence.</p></div>
+        <span class="viewport-coordinate" aria-hidden="true">+ &nbsp; + &nbsp; + &nbsp; +</span>
+      </div>
+      <div class="console-frame">
+        <div class="console-heading"><span><span class="indicator" aria-hidden="true"></span> AI COMMUNICATIONS</span><span id="request-status" role="status">READY</span></div>
+        <nav class="mode-switch" aria-label="Answer mode">
+          <button type="button" data-mode="base" aria-pressed="false"><span class="mode-index">01</span> Base</button>
+          <button type="button" data-mode="rag" class="active" aria-pressed="true"><span class="mode-index">02</span> RAG</button>
+          <button type="button" data-mode="finetuned" id="finetuned-mode" aria-pressed="false" disabled><span class="mode-index">03</span> Fine-tuned + RAG</button>
+        </nav>
+        <p id="mode-description" class="mode-description">Retrieve manual excerpts, then answer with source labels.</p>
+        <div id="chat" role="log" aria-label="Conversation" aria-live="polite" aria-relevant="additions" tabindex="0">
+          <article class="message welcome"><div class="message-heading"><span class="avatar" aria-hidden="true">O7</span><b>ODYSSEY-7 AI</b><span class="message-tag">MISSION BRIEFING</span></div><div class="message-body"><p>Welcome aboard, engineer.</p><p>Ask about the fictional ship manuals. Compare modes, inspect the excerpts, and see where the model gets it wrong.</p></div></article>
+        </div>
+        <form id="form" class="composer"><label class="sr-only" for="q">Ask the ship manual</label><span class="prompt-mark" aria-hidden="true">›</span><input id="q" maxlength="4000" placeholder="Ask the ship manual…" autocomplete="off" required aria-describedby="composer-hint"><button id="transmit" type="submit">Transmit <span aria-hidden="true">↗</span></button></form>
+        <div class="composer-footer"><span id="composer-hint">ENTER TO TRANSMIT</span><span>LOCAL INFERENCE · NO CLOUD API</span></div>
+      </div>
+    </section>
+
+    <aside class="right-wing" aria-label="Experiment controls and ship schematic">
+      <section class="panel system-panel" aria-labelledby="system-heading">
+        <div class="panel-heading"><span class="panel-index">02</span><h2 id="system-heading">Lab systems</h2><span class="indicator" aria-hidden="true"></span></div>
+        <dl class="system-list"><div><dt>Manual archive</dt><dd id="archive-status">Loading</dd></div><div><dt>Retriever</dt><dd id="retrieval-status">Checking</dd></div><div><dt>Inference</dt><dd id="backend-status">Checking</dd></div><div><dt>Model</dt><dd id="model-status">Checking</dd></div><div><dt>Adapter</dt><dd id="adapter-status">Checking</dd></div></dl>
+        <p class="system-note">Configuration shown here. Model availability is checked when you transmit.</p>
+      </section>
+      <section class="panel ship-panel" aria-labelledby="ship-heading">
+        <div class="panel-heading"><span class="panel-index">03</span><h2 id="ship-heading">Vessel schematic</h2></div>
+        <img class="ship-schematic" src="/static/ship.svg" alt="Top view schematic of the fictional Odyssey-7 spacecraft with four thrusters" width="240" height="210">
+        <div class="ship-caption"><span>ODYSSEY—7</span><small>EXPLORATION CLASS / ILLUSTRATION</small></div>
+      </section>
+      <section class="panel experiments" aria-labelledby="experiment-heading">
+        <div class="panel-heading"><span class="panel-index">04</span><h2 id="experiment-heading">Try an experiment</h2></div>
+        <button type="button" class="sample" data-question="What do I do when oxygen pressure drops?"><span class="sample-label">01 / RETRIEVAL</span><span>Oxygen pressure drops <span aria-hidden="true">↗</span></span></button>
+        <button type="button" class="sample" data-question="How do I reset navigation?"><span class="sample-label">02 / PROCEDURE</span><span>Reset the navigation array <span aria-hidden="true">↗</span></span></button>
+        <button type="button" class="sample" data-question="Who is the captain?"><span class="sample-label">03 / MISSING EVIDENCE</span><span>Who is the captain? <span aria-hidden="true">↗</span></span></button>
+        <p class="experiment-hint">Choose a question, then transmit it in different modes. Examples fill the input; they do not send.</p>
+      </section>
+    </aside>
+  </main>
+  <footer class="page-footer"><span><span class="indicator amber" aria-hidden="true"></span> EDUCATIONAL SIMULATION · NOT REAL SAFETY ADVICE</span><span>BASE → RETRIEVAL → ADAPTATION <span aria-hidden="true"> / </span> ODYSSEY-7 LAB</span></footer>
+</body>
+</html>

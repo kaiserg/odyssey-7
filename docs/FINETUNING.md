@@ -184,4 +184,5 @@ Tracked evidence: `training/preflight.json`, `training/smoke.json`,
 `training/training.json`, `training/training.log`, `training/adapter-validation.json`
 and `training/http-smoke.json`. The readiness file is machine-local and regenerated;
 a clone does not acquire a working adapter merely by having these tracked reports.
-Browser visual checks remain pending even though the HTTP integration passed.
+Subsequent cockpit browser checks are recorded in [BROWSER_VALIDATION.md](BROWSER_VALIDATION.md);
+the HTTP smoke record above remains the evidence for the original Phase 3 API run.

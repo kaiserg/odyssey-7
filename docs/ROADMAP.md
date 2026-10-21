@@ -8,12 +8,13 @@
 - [x] Base vs RAG switch; retrieved source panel
 - [x] TF-IDF lexical retrieval baseline
 - [x] Run HTTP end-to-end on Mac M5 Pro (2026-10-20)
-- [ ] Verify browser chat interactions and responsive layout on the Mac
+- [x] Verify browser chat interactions and responsive layout on the Mac
 
 Phase 1 is committed as `cbafc26`. The real HTTP smoke record is
-`docs/phase1-smoke.json`; it predates semantic retrieval. Browser automation was
-unavailable and no cockpit reference image was supplied or found. Visual acceptance
-remains explicit work, even though static routes and API integration pass.
+`docs/phase1-smoke.json`; it predates semantic retrieval. Early validation covered HTTP only. Phase 4 subsequently used native Chrome control
+for real chat, sources, mode switching, mobile layout and outage checks. The local
+cockpit concept was found in Downloads during screenshot capture and used to guide
+frame/amber-trim refinement; it was not copied into the repository.
 
 ## Phase 2: Semantic vector RAG
 
@@ -44,8 +45,7 @@ the canonical-phrase abstention metric does not mean it never expressed uncertai
 Citation checks are label/section heuristics, not claim-level factuality verification.
 See `evaluation/README.md` for commands and metric limitations.
 
-Phase 2 is complete at the API and local inference level. Browser acceptance remains
-pending in Phase 1; Phase 3 below records the subsequent MLX pipeline validation and bounded training.
+Phase 2 is complete at the API and local inference level. Browser acceptance was completed in Phase 4. Phase 3 below records the subsequent MLX pipeline validation and bounded training.
 
 ## Phase 3: Fine-tuning with LoRA
 
@@ -78,7 +78,7 @@ The API enables fine-tuned mode only with `CHAT_BACKEND=mlx` and a successfully
 validated compatible local adapter. A real HTTP check exercised all three modes;
 32 offline tests pass, and both environment dependency checks pass. The worker
 preserves its virtual-environment interpreter path, stays offline and has bounded
-generation/timeout cleanup. Browser visual acceptance is still pending above.
+generation/timeout cleanup. Browser visual acceptance was subsequently completed in Phase 4.
 
 See `docs/FINETUNING.md`, `training/preflight.json`, `training/smoke.json`,
 `training/training.log`, `training/adapter-validation.json` and
@@ -88,10 +88,28 @@ or evaluation-driven hyperparameter sweep was performed.
 ## Phase 4: Portfolio polish
 
 - [x] Architecture Mermaid diagrams and reproducible tutorial commands
-- [ ] UI screenshots and reference-based cockpit refinement
+- [x] UI screenshots and reference-based cockpit refinement
 - [x] Automated API/retrieval tests and reproducible evaluation runner
 - [x] Complete three-way comparison with measured results
 - [x] Explain RAG vs fine-tuning, limitations and local setup
+
+Phase 4 adds an orbital viewport, original SVG vessel schematic, instrument panels,
+mode explanations, responsive layouts, accessible control labels/focus states and
+source snapshots for each response. No new frontend framework, external fonts,
+training or model changes were needed. Configuration labels avoid fabricated health
+or telemetry claims. A shorter-desktop footer overlap was caught and fixed visually.
+
+Real desktop and mobile captures are in `docs/screenshots/`. Native Chrome checks
+exercise Base/RAG/fine-tuned generation, captain abstention, excerpt expansion,
+document hash links, old-answer evidence restoration, mobile transmission, missing
+adapter gating and deliberate service outages with recovery. Tests remain 32 passing;
+JavaScript syntax and diff checks pass. See `docs/BROWSER_VALIDATION.md` and
+`docs/DEMO.md` for evidence, reproduction and a reviewer walkthrough.
+
+The four planned demonstration phases are complete. Remaining optional work includes
+Safari/Firefox and physical-device checks, a formal accessibility audit, and a larger
+independent evaluation set with semantic factuality review. The current tiny model
+still makes documented factual errors; no broader accuracy claim is made.
 
 **Scope guard:** no large corpus, no enterprise platform, no general chatbot
 training. Prioritize a working educational demonstration and honest evidence.

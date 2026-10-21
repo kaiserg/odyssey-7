@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 210" fill="none">
+  <g stroke="#294654" stroke-width=".6"><path d="M20 105h200M120 12v187" stroke-dasharray="3 5"/><circle cx="120" cy="105" r="78"/><circle cx="120" cy="105" r="55" stroke-dasharray="2 5"/><path d="M20 28v-8h8m184 0h8v8M20 182v8h8m184 0h8v-8"/></g>
+  <g stroke="#89bbc6" stroke-width="1.2" stroke-linejoin="round"><path d="m120 25 13 30 4 65 27 27-4 12-28-9-5 24h-14l-5-24-28 9-4-12 27-27 4-65z" fill="#132b37"/><path d="m107 65 13-18 13 18-4 42h-18z" fill="#1e4657"/><path d="M120 47v117m-13-44 13 12 13-12M110 108h20M113 139h14"/><path d="m98 93-32 24-12 33 12 5 38-18m38-44 32 24 12 33-12 5-38-18" fill="#0c1d28"/><path d="m91 116-20 17m78-17 20 17"/><path d="M59 145v21h13v-23m96 0v23h13v-21M96 148v25h12v-20m24 0v20h12v-25" fill="#173544"/></g>
+  <g stroke="#e0b16a" stroke-width="1.5"><path d="M62 172v7m7-7v11m30-3v8m6-8v12m30-12v12m6-12v8m30-16v11m7-11v7"/></g>
+  <g stroke="#4a6c78" stroke-width=".6"><path d="m130 67 35-20h38M80 136H37v22m108 27 31 12h29"/></g>
+  <g fill="#6f939f" font-family="monospace" font-size="6"><text x="167" y="43">FLIGHT DECK</text><text x="19" y="167">ION ARRAY</text><text x="177" y="191">AFT / 04</text></g>
+  <circle cx="120" cy="82" r="3" fill="#b6dfe3"/>
+</svg>
