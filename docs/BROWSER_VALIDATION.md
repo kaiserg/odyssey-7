@@ -1,5 +1,7 @@
 # Cockpit browser validation
 
+**Language / Idioma:** English · [Español](es/VALIDACION_NAVEGADOR.md)
+
 Validated on the M5 Pro / 48 GB development Mac in Google Chrome, October 20, 2026.
 These are observed manual/native browser checks, not an automated cross-browser
 suite or a formal accessibility audit. The existing local MLX app served the live

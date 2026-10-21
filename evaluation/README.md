@@ -1,5 +1,7 @@
 # Small reproducible evaluation
 
+**Language / Idioma:** English · [Español](../docs/es/EVALUACION.md)
+
 `questions.jsonl` contains six answerable questions (one per manual section) and
 four unsupported questions. Each has a stable ID, expected chunk IDs and simple
 expected answer terms. The corpus is deliberately tiny; this is a demonstration

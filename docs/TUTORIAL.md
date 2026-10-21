@@ -1,5 +1,7 @@
 # Odyssey-7 tutorial: local document Q&A
 
+**Language / Idioma:** English · [Español](es/TUTORIAL.md)
+
 ## 1. Start with the smallest useful system
 
 The corpus contains three Markdown manuals with two sections each. Each `##`

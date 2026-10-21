@@ -1,5 +1,7 @@
 # A tiny MLX LoRA formatting experiment
 
+**Language / Idioma:** English · [Español](es/FINETUNING.md)
+
 ## What this experiment tests
 
 The goal is a consistent two-line answer format:

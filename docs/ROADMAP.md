@@ -1,5 +1,7 @@
 # Odyssey-7 — Tasks and acceptance criteria
 
+**Language / Idioma:** English · [Español](es/ROADMAP.md)
+
 ## Phase 1: Cockpit MVP
 
 - [x] Responsive spacecraft-inspired frontend with central chat display
@@ -113,3 +115,11 @@ still makes documented factual errors; no broader accuracy claim is made.
 
 **Scope guard:** no large corpus, no enterprise platform, no general chatbot
 training. Prioritize a working educational demonstration and honest evidence.
+
+## Bilingual explanatory documentation
+
+The [Spanish learning path](es/README.md) covers setup, RAG, MLX LoRA, evaluation,
+a demo walkthrough, browser-validation evidence and a bilingual glossary. Paired
+language links connect it to the English guides. This is documentation only:
+application code, UI, manuals, datasets and measured reports remain unchanged.
+No Spanish-language model evaluation or additional training is claimed.

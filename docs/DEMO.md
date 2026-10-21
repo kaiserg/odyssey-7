@@ -1,5 +1,7 @@
 # A three-minute Odyssey-7 walkthrough
 
+**Language / Idioma:** English · [Español](es/DEMO.md)
+
 ## Prepare once
 
 For the default local Ollama demo, follow the README quick start. For all three

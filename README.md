@@ -1,5 +1,7 @@
 # Odyssey-7 — RAG & Fine-Tuning Lab 🚀
 
+**Language / Idioma:** English · [Español](docs/es/README.md)
+
 A small, local-first AI engineering portfolio project with a spaceship cockpit chat.
 Compare **Base LLM vs semantic RAG vs Fine-tuned + RAG** using fictional ship manuals,
 trace every excerpt to its document, and reproduce a ten-question evaluation. The
@@ -9,6 +11,16 @@ enables the fine-tuned control only after local adapter validation.
 ![Odyssey-7 cockpit with a real local answer and retrieved evidence](docs/screenshots/cockpit-desktop.png)
 
 [Mobile view](docs/screenshots/cockpit-mobile.png) · [Three-minute demo](docs/DEMO.md) · [Browser validation](docs/BROWSER_VALIDATION.md)
+
+## Bilingual learning / Aprendizaje bilingüe
+
+Study the same implementation in [English](docs/TUTORIAL.md) or follow the
+[complete Spanish learning path](docs/es/README.md).
+
+Aprende en español con guías de RAG, LoRA con MLX, evaluación, demostración y un
+[glosario inglés–español](docs/es/GLOSARIO.md). Los comandos y la evidencia medida
+se comparten entre ambas rutas. La interfaz, los manuales y los datos permanecen
+en inglés; esta documentación no implica una evaluación del modelo en español.
 
 ## Quick start (Apple Silicon / Python 3.13)
 
